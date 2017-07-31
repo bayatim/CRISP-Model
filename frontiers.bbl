@@ -1,0 +1,704 @@
+\begin{thebibliography}{97}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Agster et~al.(2002)Agster, Fortin, and
+  Eichenbaum}]{agster2002hippocampus}
+Agster, K.~L., Fortin, N.~J., and Eichenbaum, H. (2002).
+\newblock The hippocampus and disambiguation of overlapping sequences.
+\newblock \emph{Journal of Neuroscience} 22, 5760--5768
+\bibAnnoteFile{agster2002hippocampus}
+
+\bibitem[{Aimone et~al.(2009)Aimone, Wiles, and Gage}]{aimone2009computational}
+Aimone, J.~B., Wiles, J., and Gage, F.~H. (2009).
+\newblock Computational influence of adult neurogenesis on memory encoding.
+\newblock \emph{Neuron} 61, 187--202
+\bibAnnoteFile{aimone2009computational}
+
+\bibitem[{Allen and Fortin(2013)}]{allen2013evolution}
+Allen, T.~A. and Fortin, N.~J. (2013).
+\newblock The evolution of episodic memory.
+\newblock \emph{Proceedings of the National Academy of Sciences} 110,
+  10379--10386
+\bibAnnoteFile{allen2013evolution}
+
+\bibitem[{Amaral et~al.(1990)Amaral, Ishizuka, and
+  Claiborne}]{amaral1990chapter}
+Amaral, D.~G., Ishizuka, N., and Claiborne, B. (1990).
+\newblock Chapter neurons, numbers and the hippocampal network.
+\newblock \emph{Progress in brain research} 83, 1--11
+\bibAnnoteFile{amaral1990chapter}
+
+\bibitem[{Amit(1992)}]{amit1992modeling}
+Amit, D.~J. (1992).
+\newblock \emph{Modeling brain function: The world of attractor neural
+  networks} (Cambridge University Press)
+\bibAnnoteFile{amit1992modeling}
+
+\bibitem[{Appleby et~al.(2011)Appleby, Kempermann, and
+  Wiskott}]{appleby2011role}
+Appleby, P.~A., Kempermann, G., and Wiskott, L. (2011).
+\newblock The role of additive neurogenesis and synaptic plasticity in a
+  hippocampal memory model with grid-cell like input.
+\newblock \emph{PLoS Comput Biol} 7, e1001063
+\bibAnnoteFile{appleby2011role}
+
+\bibitem[{Azizi et~al.(2013)Azizi, Wiskott, and Cheng}]{azizi2013computational}
+Azizi, A.~H., Wiskott, L., and Cheng, S. (2013).
+\newblock A computational model for preplay in the hippocampus.
+\newblock \emph{Frontiers in computational neuroscience} 7, 161
+\bibAnnoteFile{azizi2013computational}
+
+\bibitem[{Babb and Crystal(2006)}]{babb2006episodic}
+Babb, S.~J. and Crystal, J.~D. (2006).
+\newblock Episodic-like memory in the rat.
+\newblock \emph{Current Biology} 16, 1317--1321
+\bibAnnoteFile{babb2006episodic}
+
+\bibitem[{Bayati et~al.(2015)Bayati, Valizadeh, Abbassian, and
+  Cheng}]{bayati2015self}
+Bayati, M., Valizadeh, A., Abbassian, A., and Cheng, S. (2015).
+\newblock Self-organization of synchronous activity propagation in neuronal
+  networks driven by local excitation.
+\newblock \emph{Frontiers in computational neuroscience} 9
+\bibAnnoteFile{bayati2015self}
+
+\bibitem[{Becker(2005)}]{becker2005computational}
+Becker, S. (2005).
+\newblock A computational principle for hippocampal learning and neurogenesis.
+\newblock \emph{Hippocampus} 15, 722--738
+\bibAnnoteFile{becker2005computational}
+
+\bibitem[{Burgess et~al.(2002)Burgess, Maguire, and O'Keefe}]{burgess2002human}
+Burgess, N., Maguire, E.~A., and O'Keefe, J. (2002).
+\newblock The human hippocampus and spatial and episodic memory.
+\newblock \emph{Neuron} 35, 625--641
+\bibAnnoteFile{burgess2002human}
+
+\bibitem[{Cheng(2013)}]{cheng2013crisp}
+Cheng, S. (2013).
+\newblock The {CRISP} theory of hippocampal function in episodic memory.
+\newblock \emph{Frontiers in neural circuits} 7, 88
+\bibAnnoteFile{cheng2013crisp}
+
+\bibitem[{Cheng and Frank(2011)}]{cheng2011structure}
+Cheng, S. and Frank, L.~M. (2011).
+\newblock The structure of networks that produce the transformation from grid
+  cells to place cells.
+\newblock \emph{Neuroscience} 197, 293--306
+\bibAnnoteFile{cheng2011structure}
+
+\bibitem[{Cheng and Werning(2016)}]{cheng2016episodic}
+Cheng, S. and Werning, M. (2016).
+\newblock What is episodic memory if it is a natural kind?
+\newblock \emph{Synthese} 193, 1345--1385
+\bibAnnoteFile{cheng2016episodic}
+
+\bibitem[{Cheng et~al.(2016)Cheng, Werning, and
+  Suddendorf}]{cheng2016dissociating}
+Cheng, S., Werning, M., and Suddendorf, T. (2016).
+\newblock Dissociating memory traces and scenario construction in mental time
+  travel.
+\newblock \emph{Neuroscience \& Biobehavioral Reviews} 60, 82--89
+\bibAnnoteFile{cheng2016dissociating}
+
+\bibitem[{Chiba et~al.(1994)Chiba, Kesner, and Reynolds}]{chiba1994memory}
+Chiba, A.~A., Kesner, R.~P., and Reynolds, A.~M. (1994).
+\newblock Memory for spatial location as a function of temporal lag in rats:
+  role of hippocampus and medial prefrontal cortex.
+\newblock \emph{Behavioral and neural biology} 61, 123--131
+\bibAnnoteFile{chiba1994memory}
+
+\bibitem[{Clayton and Dickinson(1998)}]{clayton1998episodic}
+Clayton, N.~S. and Dickinson, A. (1998).
+\newblock Episodic-like memory during cache recovery by scrub jays.
+\newblock \emph{Nature} 395, 272--274
+\bibAnnoteFile{clayton1998episodic}
+
+\bibitem[{Cravens et~al.(2006)Cravens, Vargas-Pinto, Christian, and
+  Nakazawa}]{cravens2006ca3}
+Cravens, C.~J., Vargas-Pinto, N., Christian, K.~M., and Nakazawa, K. (2006).
+\newblock {CA3 NMDA} receptors are crucial for rapid and automatic
+  representation of context memory.
+\newblock \emph{European Journal of Neuroscience} 24, 1771--1780
+\bibAnnoteFile{cravens2006ca3}
+
+\bibitem[{Csicsvari et~al.(2007)Csicsvari, O'Neill, Allen, and
+  Senior}]{csicsvari2007place}
+Csicsvari, J., O'Neill, J., Allen, K., and Senior, T. (2007).
+\newblock Place-selective firing contributes to the reverse-order reactivation
+  of {CA1} pyramidal cells during sharp waves in open-field exploration.
+\newblock \emph{European Journal of Neuroscience} 26, 704--716
+\bibAnnoteFile{csicsvari2007place}
+
+\bibitem[{Cutsuridis et~al.(2010)Cutsuridis, Graham, Cobb, and
+  Vida}]{cutsuridis2010hippocampal}
+Cutsuridis, V., Graham, B.~P., Cobb, S., and Vida, I. (2010).
+\newblock \emph{Hippocampal microcircuits: a computational modeler's resource
+  book}, vol.~5 (Springer Science \& Business Media)
+\bibAnnoteFile{cutsuridis2010hippocampal}
+
+\bibitem[{Dally et~al.(2006)Dally, Emery, and Clayton}]{dally2006food}
+Dally, J.~M., Emery, N.~J., and Clayton, N.~S. (2006).
+\newblock Food-caching western scrub-jays keep track of who was watching when.
+\newblock \emph{Science} 312, 1662--1665
+\bibAnnoteFile{dally2006food}
+
+\bibitem[{Dere et~al.(2005)Dere, Huston, and Silva}]{dere2005episodic}
+Dere, E., Huston, J.~P., and Silva, M. A. D.~S. (2005).
+\newblock Episodic-like memory in mice: simultaneous assessment of object,
+  place and temporal order memory.
+\newblock \emph{Brain research protocols} 16, 10--19
+\bibAnnoteFile{dere2005episodic}
+
+\bibitem[{Deshmukh and Bhalla(2003)}]{deshmukh2003representation}
+Deshmukh, S.~S. and Bhalla, U.~S. (2003).
+\newblock Representation of odor habituation and timing in the hippocampus.
+\newblock \emph{The Journal of neuroscience} 23, 1903--1915
+\bibAnnoteFile{deshmukh2003representation}
+
+\bibitem[{Dragoi and Tonegawa(2011)}]{dragoi2011preplay}
+Dragoi, G. and Tonegawa, S. (2011).
+\newblock Preplay of future place cell sequences by hippocampal cellular
+  assemblies.
+\newblock \emph{Nature} 469, 397--401
+\bibAnnoteFile{dragoi2011preplay}
+
+\bibitem[{Fellini et~al.(2009)Fellini, Florian, Courtey, and
+  Roullet}]{fellini2009pharmacological}
+Fellini, L., Florian, C., Courtey, J., and Roullet, P. (2009).
+\newblock Pharmacological intervention of hippocampal {CA3 NMDA} receptors
+  impairs acquisition and long-term memory retrieval of spatial pattern
+  completion task.
+\newblock \emph{Learning \& memory} 16, 387--394
+\bibAnnoteFile{fellini2009pharmacological}
+
+\bibitem[{Fontanari et~al.(1995)Fontanari, Rolls, Costa
+  et~al.}]{fontanari1995model}
+Fontanari, J., Rolls, E., Costa, D.~F., et~al. (1995).
+\newblock A model of the operation of the hippocampus and entorhinal cortex in
+  memory.
+\newblock \emph{International Journal of Neural Systems} 6, 51--70
+\bibAnnoteFile{fontanari1995model}
+
+\bibitem[{Fortin et~al.(2002)Fortin, Agster, and
+  Eichenbaum}]{fortin2002critical}
+Fortin, N.~J., Agster, K.~L., and Eichenbaum, H.~B. (2002).
+\newblock Critical role of the hippocampus in memory for sequences of events.
+\newblock \emph{Nature neuroscience} 5, 458--462
+\bibAnnoteFile{fortin2002critical}
+
+\bibitem[{Gilbert et~al.(1998)Gilbert, Kesner, and
+  DeCoteau}]{gilbert1998memory}
+Gilbert, P.~E., Kesner, R.~P., and DeCoteau, W.~E. (1998).
+\newblock Memory for spatial location: role of the hippocampus in mediating
+  spatial pattern separation.
+\newblock \emph{The Journal of Neuroscience} 18, 804--810
+\bibAnnoteFile{gilbert1998memory}
+
+\bibitem[{Gluck and Myers(2001)}]{gluck2001gateway}
+Gluck, M.~A. and Myers, C.~E. (2001).
+\newblock \emph{Gateway to memory: An introduction to neural network modeling
+  of the hippocampus and learning} (MIT Press)
+\bibAnnoteFile{gluck2001gateway}
+
+\bibitem[{Gold and Kesner(2005)}]{gold2005role}
+Gold, A.~E. and Kesner, R.~P. (2005).
+\newblock The role of the {CA3} subregion of the dorsal hippocampus in spatial
+  pattern completion in the rat.
+\newblock \emph{Hippocampus} 15, 808--814
+\bibAnnoteFile{gold2005role}
+
+\bibitem[{Gupta et~al.(2010)Gupta, van~der Meer, Touretzky, and
+  Redish}]{gupta2010hippocampal}
+Gupta, A.~S., van~der Meer, M.~A., Touretzky, D.~S., and Redish, A.~D. (2010).
+\newblock Hippocampal replay is not a simple function of experience.
+\newblock \emph{Neuron} 65, 695--705
+\bibAnnoteFile{gupta2010hippocampal}
+
+\bibitem[{Hafting et~al.(2005)Hafting, Fyhn, Molden, Moser, and
+  Moser}]{hafting2005microstructure}
+Hafting, T., Fyhn, M., Molden, S., Moser, M.-B., and Moser, E.~I. (2005).
+\newblock Microstructure of a spatial map in the entorhinal cortex.
+\newblock \emph{Nature} 436, 801--806
+\bibAnnoteFile{hafting2005microstructure}
+
+\bibitem[{Hasselmo et~al.(1996)Hasselmo, Wyble, and
+  Wallenstein}]{hasselmo1996encoding}
+Hasselmo, M.~E., Wyble, B.~P., and Wallenstein, G.~V. (1996).
+\newblock Encoding and retrieval of episodic memories: role of cholinergic and
+  gabaergic modulation in the hippocampus.
+\newblock \emph{Hippocampus} 6, 693--708
+\bibAnnoteFile{hasselmo1996encoding}
+
+\bibitem[{Hastie et~al.(2009)Hastie, Tibshirani, and Friedman}]{Hastie2009}
+Hastie, T., Tibshirani, R., and Friedman, J. (2009).
+\newblock \emph{{The Elements of Statistical Learning}} (Springer)
+\bibAnnoteFile{Hastie2009}
+
+\bibitem[{Hoffman et~al.(2009)Hoffman, Beran, and Washburn}]{hoffman2009memory}
+Hoffman, M.~L., Beran, M.~J., and Washburn, D.~A. (2009).
+\newblock Memory for “what”,“where”, and “when” information in
+  rhesus monkeys (macaca mulatta).
+\newblock \emph{Journal of Experimental Psychology: Animal Behavior Processes}
+  35, 143
+\bibAnnoteFile{hoffman2009memory}
+
+\bibitem[{Hunsaker et~al.(2008)Hunsaker, Tran, and Kesner}]{hunsaker2008double}
+Hunsaker, M.~R., Tran, G.~T., and Kesner, R.~P. (2008).
+\newblock A double dissociation of subcortical hippocampal efferents for
+  encoding and consolidation/retrieval of spatial information.
+\newblock \emph{Hippocampus} 18, 699
+\bibAnnoteFile{hunsaker2008double}
+
+\bibitem[{Ishizuka et~al.(1990)Ishizuka, Weber, and
+  Amaral}]{ishizuka1990organization}
+Ishizuka, N., Weber, J., and Amaral, D.~G. (1990).
+\newblock Organization of intrahippocampal projections originating from ca3
+  pyramidal cells in the rat.
+\newblock \emph{Journal of Comparative Neurology} 295, 580--623
+\bibAnnoteFile{ishizuka1990organization}
+
+\bibitem[{Jadhav et~al.(2012)Jadhav, Kemere, German, and
+  Frank}]{jadhav2012awake}
+Jadhav, S.~P., Kemere, C., German, P.~W., and Frank, L.~M. (2012).
+\newblock Awake hippocampal sharp-wave ripples support spatial memory.
+\newblock \emph{Science} 336, 1454--1458
+\bibAnnoteFile{jadhav2012awake}
+
+\bibitem[{Jaeger(2001)}]{jaeger2001echo}
+Jaeger, H. (2001).
+\newblock The “echo state” approach to analysing and training recurrent
+  neural networks-with an erratum note.
+\newblock \emph{Bonn, Germany: German National Research Center for Information
+  Technology GMD Technical Report} 148, 34
+\bibAnnoteFile{jaeger2001echo}
+
+\bibitem[{Jerman et~al.(2006)Jerman, Kesner, and
+  Hunsaker}]{jerman2006disconnection}
+Jerman, T., Kesner, R.~P., and Hunsaker, M.~R. (2006).
+\newblock Disconnection analysis of {CA3} and dg in mediating encoding but not
+  retrieval in a spatial maze learning task.
+\newblock \emph{Learning \& Memory} 13, 458--464
+\bibAnnoteFile{jerman2006disconnection}
+
+\bibitem[{Kaminski et~al.(2008)Kaminski, Fischer, and
+  Call}]{kaminski2008prospective}
+Kaminski, J., Fischer, J., and Call, J. (2008).
+\newblock Prospective object search in dogs: mixed evidence for knowledge of
+  what and where.
+\newblock \emph{Animal cognition} 11, 367--371
+\bibAnnoteFile{kaminski2008prospective}
+
+\bibitem[{Karlsson and Frank(2008)}]{karlsson2008network}
+Karlsson, M.~P. and Frank, L.~M. (2008).
+\newblock Network dynamics underlying the formation of sparse, informative
+  representations in the hippocampus.
+\newblock \emph{The Journal of neuroscience} 28, 14271--14281
+\bibAnnoteFile{karlsson2008network}
+
+\bibitem[{Klempin and Kempermann(2007)}]{klempin2007adult}
+Klempin, F. and Kempermann, G. (2007).
+\newblock Adult hippocampal neurogenesis and aging.
+\newblock \emph{European archives of psychiatry and clinical neuroscience} 257,
+  271--280
+\bibAnnoteFile{klempin2007adult}
+
+\bibitem[{Kropff and Treves(2007)}]{kropff2007complexity}
+Kropff, E. and Treves, A. (2007).
+\newblock The complexity of latching transitions in large scale cortical
+  networks.
+\newblock \emph{Natural Computing} 6, 169--185
+\bibAnnoteFile{kropff2007complexity}
+
+\bibitem[{Kudrimoti et~al.(1999)Kudrimoti, Barnes, and
+  McNaughton}]{kudrimoti1999reactivation}
+Kudrimoti, H.~S., Barnes, C.~A., and McNaughton, B.~L. (1999).
+\newblock Reactivation of hippocampal cell assemblies: effects of behavioral
+  state, experience, and eeg dynamics.
+\newblock \emph{Journal of Neuroscience} 19, 4090--4101
+\bibAnnoteFile{kudrimoti1999reactivation}
+
+\bibitem[{Kuhn et~al.(1996)Kuhn, Dickinson-Anson, and
+  Gage}]{kuhn1996neurogenesis}
+Kuhn, H.~G., Dickinson-Anson, H., and Gage, F.~H. (1996).
+\newblock Neurogenesis in the dentate gyrus of the adult rat: age-related
+  decrease of neuronal progenitor proliferation.
+\newblock \emph{The Journal of neuroscience} 16, 2027--2033
+\bibAnnoteFile{kuhn1996neurogenesis}
+
+\bibitem[{Kuipers et~al.(2015)Kuipers, Schroeder, and
+  Trentani}]{kuipers2015changes}
+Kuipers, S.~D., Schroeder, J.~E., and Trentani, A. (2015).
+\newblock Changes in hippocampal neurogenesis throughout early development.
+\newblock \emph{Neurobiology of aging} 36, 365--379
+\bibAnnoteFile{kuipers2015changes}
+
+\bibitem[{Lazar et~al.(2009)Lazar, Pipa, and Triesch}]{lazar2009sorn}
+Lazar, A., Pipa, G., and Triesch, J. (2009).
+\newblock Sorn: a self-organizing recurrent neural network.
+\newblock \emph{Frontiers in computational neuroscience} 3, 23
+\bibAnnoteFile{lazar2009sorn}
+
+\bibitem[{Lazic(2012)}]{lazic2012modeling}
+Lazic, S.~E. (2012).
+\newblock Modeling hippocampal neurogenesis across the lifespan in seven
+  species.
+\newblock \emph{Neurobiology of aging} 33, 1664--1671
+\bibAnnoteFile{lazic2012modeling}
+
+\bibitem[{Lee and Wilson(2002)}]{lee2002memory}
+Lee, A.~K. and Wilson, M.~A. (2002).
+\newblock Memory of sequential experience in the hippocampus during slow wave
+  sleep.
+\newblock \emph{Neuron} 36, 1183--1194
+\bibAnnoteFile{lee2002memory}
+
+\bibitem[{Lee and Kesner(2004)}]{lee2004differential}
+Lee, I. and Kesner, R.~P. (2004).
+\newblock Differential contributions of dorsal hippocampal subregions to memory
+  acquisition and retrieval in contextual fear-conditioning.
+\newblock \emph{Hippocampus} 14, 301--310
+\bibAnnoteFile{lee2004differential}
+
+\bibitem[{Leutgeb et~al.(2007)Leutgeb, Leutgeb, Moser, and
+  Moser}]{leutgeb2007pattern}
+Leutgeb, J.~K., Leutgeb, S., Moser, M.-B., and Moser, E.~I. (2007).
+\newblock Pattern separation in the dentate gyrus and {CA3} of the hippocampus.
+\newblock \emph{science} 315, 961--966
+\bibAnnoteFile{leutgeb2007pattern}
+
+\bibitem[{Li et~al.(1994)Li, Somogyi, Ylinen, and Buzsaki}]{li1994hippocampal}
+Li, X.-G., Somogyi, P., Ylinen, A., and Buzsaki, G. (1994).
+\newblock The hippocampal {CA3} network: an in vivo intracellular labeling
+  study.
+\newblock \emph{Journal of Comparative Neurology} 339, 181--208
+\bibAnnoteFile{li1994hippocampal}
+
+\bibitem[{Lisman and Otmakhova(2001)}]{lisman2001storage}
+Lisman, J.~E. and Otmakhova, N.~A. (2001).
+\newblock Storage, recall, and novelty detection of sequences by the
+  hippocampus: elaborating on the socratic model to account for normal and
+  aberrant effects of dopamine.
+\newblock \emph{Hippocampus} 11, 551--568
+\bibAnnoteFile{lisman2001storage}
+
+\bibitem[{Louie and Wilson(2001)}]{louie2001temporally}
+Louie, K. and Wilson, M.~A. (2001).
+\newblock Temporally structured replay of awake hippocampal ensemble activity
+  during rapid eye movement sleep.
+\newblock \emph{Neuron} 29, 145--156
+\bibAnnoteFile{louie2001temporally}
+
+\bibitem[{MacDonald et~al.(2011)MacDonald, Lepage, Eden, and
+  Eichenbaum}]{macdonald2011hippocampal}
+MacDonald, C.~J., Lepage, K.~Q., Eden, U.~T., and Eichenbaum, H. (2011).
+\newblock Hippocampal “time cells” bridge the gap in memory for
+  discontiguous events.
+\newblock \emph{Neuron} 71, 737--749
+\bibAnnoteFile{macdonald2011hippocampal}
+
+\bibitem[{Marr(1971)}]{marr1991simple}
+Marr, D. (1971).
+\newblock {Simple memory: a theory for archicortex}.
+\newblock \emph{Philosophical transactions of the Royal Society of London} 262,
+  23--81+
+\bibAnnoteFile{marr1991simple}
+
+\bibitem[{McClelland et~al.(1995)McClelland, McNaughton, and
+  O'Reilly}]{mcclelland1995there}
+McClelland, J.~L., McNaughton, B.~L., and O'Reilly, R.~C. (1995).
+\newblock Why there are complementary learning systems in the hippocampus and
+  neocortex: insights from the successes and failures of connectionist models
+  of learning and memory.
+\newblock \emph{Psychological review} 102, 419
+\bibAnnoteFile{mcclelland1995there}
+
+\bibitem[{McNaughton and Morris(1987)}]{mcnaughton1987hippocampal}
+McNaughton, B.~L. and Morris, R.~G. (1987).
+\newblock Hippocampal synaptic enhancement and information storage within a
+  distributed memory system.
+\newblock \emph{Trends in neurosciences} 10, 408--415
+\bibAnnoteFile{mcnaughton1987hippocampal}
+
+\bibitem[{Milner et~al.(1968)Milner, Corkin, and Teuber}]{milner1968further}
+Milner, B., Corkin, S., and Teuber, H.-L. (1968).
+\newblock Further analysis of the hippocampal amnesic syndrome: 14-year
+  follow-up study of hm.
+\newblock \emph{Neuropsychologia} 6, 215--234
+\bibAnnoteFile{milner1968further}
+
+\bibitem[{Monaco and Abbott(2011)}]{monaco2011modular}
+Monaco, J.~D. and Abbott, L.~F. (2011).
+\newblock Modular realignment of entorhinal grid cell activity as a basis for
+  hippocampal remapping.
+\newblock \emph{The Journal of Neuroscience} 31, 9414--9425
+\bibAnnoteFile{monaco2011modular}
+
+\bibitem[{Morris et~al.(1982)Morris, Garrud, Rawlins, and
+  O'Keefe}]{morris1982place}
+Morris, R., Garrud, P., Rawlins, J., and O'Keefe, J. (1982).
+\newblock Place navigation impaired in rats with hippocampal lesions.
+\newblock \emph{Nature} 297, 681--683
+\bibAnnoteFile{morris1982place}
+
+\bibitem[{Moustafa et~al.(2009)Moustafa, Myers, and
+  Gluck}]{moustafa2009neurocomputational}
+Moustafa, A.~A., Myers, C.~E., and Gluck, M.~A. (2009).
+\newblock A neurocomputational model of classical conditioning phenomena: a
+  putative role for the hippocampal region in associative learning.
+\newblock \emph{Brain research} 1276, 180--195
+\bibAnnoteFile{moustafa2009neurocomputational}
+
+\bibitem[{Nakazawa et~al.(2002)Nakazawa, Quirk, Chitwood, Watanabe, Yeckel, Sun
+  et~al.}]{nakazawa2002requirement}
+Nakazawa, K., Quirk, M.~C., Chitwood, R.~A., Watanabe, M., Yeckel, M.~F., Sun,
+  L.~D., et~al. (2002).
+\newblock Requirement for hippocampal {CA3 NMDA} receptors in associative
+  memory recall.
+\newblock \emph{Science} 297, 211--218
+\bibAnnoteFile{nakazawa2002requirement}
+
+\bibitem[{Nakazawa et~al.(2003)Nakazawa, Sun, Quirk, Rondi-Reig, Wilson, and
+  Tonegawa}]{nakazawa2003hippocampal}
+Nakazawa, K., Sun, L.~D., Quirk, M.~C., Rondi-Reig, L., Wilson, M.~A., and
+  Tonegawa, S. (2003).
+\newblock Hippocampal {CA3 NMDA} receptors are crucial for memory acquisition
+  of one-time experience.
+\newblock \emph{Neuron} 38, 305--315
+\bibAnnoteFile{nakazawa2003hippocampal}
+
+\bibitem[{Neher et~al.(2015)Neher, Cheng, and Wiskott}]{neher2015memory}
+Neher, T., Cheng, S., and Wiskott, L. (2015).
+\newblock Memory storage fidelity in the hippocampal circuit: the role of
+  subregions and input statistics.
+\newblock \emph{PLoS Comput Biol} 11, e1004250
+\bibAnnoteFile{neher2015memory}
+
+\bibitem[{O'reilly and McClelland(1994)}]{o1994hippocampal}
+O'reilly, R.~C. and McClelland, J.~L. (1994).
+\newblock Hippocampal conjunctive encoding, storage, and recall: avoiding a
+  trade-off.
+\newblock \emph{Hippocampus} 4, 661--682
+\bibAnnoteFile{o1994hippocampal}
+
+\bibitem[{Pastalkova et~al.(2008)Pastalkova, Itskov, Amarasingham, and
+  Buzs{\'a}ki}]{pastalkova2008internally}
+Pastalkova, E., Itskov, V., Amarasingham, A., and Buzs{\'a}ki, G. (2008).
+\newblock Internally generated cell assembly sequences in the rat hippocampus.
+\newblock \emph{Science} 321, 1322--1327
+\bibAnnoteFile{pastalkova2008internally}
+
+\bibitem[{Pfeiffer and Foster(2013)}]{pfeiffer2013hippocampal}
+Pfeiffer, B.~E. and Foster, D.~J. (2013).
+\newblock Hippocampal place-cell sequences depict future paths to remembered
+  goals.
+\newblock \emph{Nature} 497, 74--79
+\bibAnnoteFile{pfeiffer2013hippocampal}
+
+\bibitem[{Pyka and Cheng(2014)}]{pyka2014pattern}
+Pyka, M. and Cheng, S. (2014).
+\newblock Pattern association and consolidation emerges from connectivity
+  properties between cortex and hippocampus.
+\newblock \emph{PloS one} 9, e85016
+\bibAnnoteFile{pyka2014pattern}
+
+\bibitem[{Qin et~al.(1997)Qin, McNaughton, Skaggs, and Barnes}]{qin1997memory}
+Qin, Y.-L., McNaughton, B.~L., Skaggs, W.~E., and Barnes, C.~A. (1997).
+\newblock Memory reprocessing in corticocortical and hippocampocortical
+  neuronal ensembles.
+\newblock \emph{Philosophical Transactions of the Royal Society B: Biological
+  Sciences} 352, 1525--1533
+\bibAnnoteFile{qin1997memory}
+
+\bibitem[{Rajan et~al.(2016)Rajan, Harvey, and Tank}]{rajan2016recurrent}
+Rajan, K., Harvey, C.~D., and Tank, D.~W. (2016).
+\newblock Recurrent network models of sequence generation and memory.
+\newblock \emph{Neuron} 90, 128--142
+\bibAnnoteFile{rajan2016recurrent}
+
+\bibitem[{Renn{\'o}-Costa et~al.(2010)Renn{\'o}-Costa, Lisman, and
+  Verschure}]{renno2010mechanism}
+Renn{\'o}-Costa, C., Lisman, J.~E., and Verschure, P.~F. (2010).
+\newblock The mechanism of rate remapping in the dentate gyrus.
+\newblock \emph{Neuron} 68, 1051--1058
+\bibAnnoteFile{renno2010mechanism}
+
+\bibitem[{Rolls(2007)}]{rolls2007attractor}
+Rolls, E.~T. (2007).
+\newblock An attractor network in the hippocampus: theory and neurophysiology.
+\newblock \emph{Learning \& Memory} 14, 714--731
+\bibAnnoteFile{rolls2007attractor}
+
+\bibitem[{Romani and Tsodyks(2015)}]{romani2015short}
+Romani, S. and Tsodyks, M. (2015).
+\newblock Short-term plasticity based network model of place cells dynamics.
+\newblock \emph{Hippocampus} 25, 94--105
+\bibAnnoteFile{romani2015short}
+
+\bibitem[{Roudi and Treves(2008)}]{roudi2008representing}
+Roudi, Y. and Treves, A. (2008).
+\newblock Representing where along with what information in a model of a
+  cortical patch.
+\newblock \emph{PLoS Comput Biol} 4, e1000012
+\bibAnnoteFile{roudi2008representing}
+
+\bibitem[{Salz et~al.(2016)Salz, Tiganj, Khasnabish, Kohley, Sheehan, Howard
+  et~al.}]{salz2016time}
+Salz, D.~M., Tiganj, Z., Khasnabish, S., Kohley, A., Sheehan, D., Howard,
+  M.~W., et~al. (2016).
+\newblock Time cells in hippocampal area {CA3}.
+\newblock \emph{The Journal of Neuroscience} 36, 7476--7484
+\bibAnnoteFile{salz2016time}
+
+\bibitem[{Scoville and Milner(1957)}]{scoville1957loss}
+Scoville, W.~B. and Milner, B. (1957).
+\newblock Loss of recent memory after bilateral hippocampal lesions.
+\newblock \emph{Journal of Neurology, Neurosurgery \& Psychiatry} 20, 11--21
+\bibAnnoteFile{scoville1957loss}
+
+\bibitem[{Sejnowski(1977)}]{sejnowski1977storing}
+Sejnowski, T.~J. (1977).
+\newblock Storing covariance with nonlinearly interacting neurons.
+\newblock \emph{Journal of mathematical biology} 4, 303--321
+\bibAnnoteFile{sejnowski1977storing}
+
+\bibitem[{Skaggs and McNaughton(1996)}]{skaggs1996replay}
+Skaggs, W.~E. and McNaughton, B.~L. (1996).
+\newblock Replay of neuronal firing sequences in rat hippocampus during sleep
+  following spatial experience.
+\newblock \emph{Science} 271, 1870
+\bibAnnoteFile{skaggs1996replay}
+
+\bibitem[{Solstad et~al.(2008)Solstad, Boccara, Kropff, Moser, and
+  Moser}]{solstad2008representation}
+Solstad, T., Boccara, C.~N., Kropff, E., Moser, M.-B., and Moser, E.~I. (2008).
+\newblock Representation of geometric borders in the entorhinal cortex.
+\newblock \emph{Science} 322, 1865--1868
+\bibAnnoteFile{solstad2008representation}
+
+\bibitem[{Stensola et~al.(2012)Stensola, Stensola, Solstad, Fr{\o}land, Moser,
+  and Moser}]{stensola2012entorhinal}
+Stensola, H., Stensola, T., Solstad, T., Fr{\o}land, K., Moser, M.-B., and
+  Moser, E.~I. (2012).
+\newblock The entorhinal grid map is discretized.
+\newblock \emph{Nature} 492, 72--78
+\bibAnnoteFile{stensola2012entorhinal}
+
+\bibitem[{Stent(1973)}]{stent1973physiological}
+Stent, G.~S. (1973).
+\newblock A physiological mechanism for hebb's postulate of learning.
+\newblock \emph{Proceedings of the national academy of sciences} 70, 997--1001
+\bibAnnoteFile{stent1973physiological}
+
+\bibitem[{Suddendorf and Corballis(2007)}]{suddendorf2007evolution}
+Suddendorf, T. and Corballis, M.~C. (2007).
+\newblock The evolution of foresight: What is mental time travel, and is it
+  unique to humans?
+\newblock \emph{Behavioral and Brain Sciences} 30, 299--313
+\bibAnnoteFile{suddendorf2007evolution}
+
+\bibitem[{Sussillo and Abbott(2009)}]{sussillo2009generating}
+Sussillo, D. and Abbott, L.~F. (2009).
+\newblock Generating coherent patterns of activity from chaotic neural
+  networks.
+\newblock \emph{Neuron} 63, 544--557
+\bibAnnoteFile{sussillo2009generating}
+
+\bibitem[{Taube et~al.(1990)Taube, Muller, and Ranck}]{taube1990head}
+Taube, J.~S., Muller, R.~U., and Ranck, J.~B. (1990).
+\newblock Head-direction cells recorded from the postsubiculum in freely moving
+  rats. i. description and quantitative analysis.
+\newblock \emph{The Journal of neuroscience} 10, 420--435
+\bibAnnoteFile{taube1990head}
+
+\bibitem[{Treves and Rolls(1992{\natexlab{a}})}]{treves1992computational}
+Treves, A. and Rolls, E.~T. (1992{\natexlab{a}}).
+\newblock Computational constraints suggest the need for two distinct input
+  systems to the hippocampal {CA3} network.
+\newblock \emph{Hippocampus} 2, 189--199
+\bibAnnoteFile{treves1992computational}
+
+\bibitem[{Treves and Rolls(1992{\natexlab{b}})}]{HIPO:HIPO450020209}
+Treves, A. and Rolls, E.~T. (1992{\natexlab{b}}).
+\newblock Computational constraints suggest the need for two distinct input
+  systems to the hippocampal {CA3} network.
+\newblock \emph{Hippocampus} 2, 189--199.
+\newblock \doi{10.1002/hipo.450020209}
+\bibAnnoteFile{HIPO:HIPO450020209}
+
+\bibitem[{Treves and Rolls(1994)}]{treves1994computational}
+Treves, A. and Rolls, E.~T. (1994).
+\newblock Computational analysis of the role of the hippocampus in memory.
+\newblock \emph{Hippocampus} 4, 374--391
+\bibAnnoteFile{treves1994computational}
+
+\bibitem[{Treves et~al.(2008)Treves, Tashiro, Witter, and
+  Moser}]{treves2008mammalian}
+Treves, A., Tashiro, A., Witter, M.~P., and Moser, E.~I. (2008).
+\newblock What is the mammalian dentate gyrus good for?
+\newblock \emph{Neuroscience} 154, 1155--1172
+\bibAnnoteFile{treves2008mammalian}
+
+\bibitem[{Tulving(1972)}]{tulving1972episodic}
+Tulving, E. (1972).
+\newblock Episodic and semantic memory 1.
+\newblock \emph{Organization of Memory. London: Academic} 381, 382--404
+\bibAnnoteFile{tulving1972episodic}
+
+\bibitem[{Vago et~al.(2007)Vago, Bevan, and Kesner}]{vago2007role}
+Vago, D.~R., Bevan, A., and Kesner, R.~P. (2007).
+\newblock The role of the direct perforant path input to the {CA1} subregion of
+  the dorsal hippocampus in memory retention and retrieval.
+\newblock \emph{Hippocampus} 17, 977--987
+\bibAnnoteFile{vago2007role}
+
+\bibitem[{Willshaw et~al.(1969)Willshaw, Buneman, and
+  Longuet-Higgins}]{willshaw1969non}
+Willshaw, D.~J., Buneman, O.~P., and Longuet-Higgins, H.~C. (1969).
+\newblock Non-holographic associative memory.
+\newblock \emph{Nature}
+\bibAnnoteFile{willshaw1969non}
+
+\bibitem[{Wiskott et~al.(2006)Wiskott, Rasch, and
+  Kempermann}]{wiskott2006functional}
+Wiskott, L., Rasch, M.~J., and Kempermann, G. (2006).
+\newblock A functional hypothesis for adult hippocampal neurogenesis: avoidance
+  of catastrophic interference in the dentate gyrus.
+\newblock \emph{Hippocampus} 16, 329--343
+\bibAnnoteFile{wiskott2006functional}
+
+\bibitem[{Yoon et~al.(2012)Yoon, Seo, Kim, and Lee}]{yoon2012hippocampus}
+Yoon, J., Seo, Y., Kim, J., and Lee, I. (2012).
+\newblock Hippocampus is required for paired associate memory with neither
+  delay nor trial uniqueness.
+\newblock \emph{Learning \& Memory} 19, 1--8
+\bibAnnoteFile{yoon2012hippocampus}
+
+\bibitem[{Zentall et~al.(2001)Zentall, Clement, Bhatt, and
+  Allen}]{zentall2001episodic}
+Zentall, T.~R., Clement, T.~S., Bhatt, R.~S., and Allen, J. (2001).
+\newblock Episodic-like memory in pigeons.
+\newblock \emph{Psychonomic Bulletin \& Review} 8, 685--690
+\bibAnnoteFile{zentall2001episodic}
+
+\bibitem[{Zhang et~al.(2013)Zhang, Ye, Miao, Tsao, Cerniauskas, Ledergerber
+  et~al.}]{zhang2013optogenetic}
+Zhang, S.-J., Ye, J., Miao, C., Tsao, A., Cerniauskas, I., Ledergerber, D.,
+  et~al. (2013).
+\newblock Optogenetic dissection of entorhinal-hippocampal functional
+  connectivity.
+\newblock \emph{Science} 340, 1232627
+\bibAnnoteFile{zhang2013optogenetic}
+
+\end{thebibliography}
