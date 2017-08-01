@@ -143,7 +143,13 @@ Here we implement the CRISP theory in a neural network model to store and retrie
 \subsection*{Model Architecture and Activation Function}
 
 
-The model includes the entorhinal cortex (EC), CA3 and CA1. The superficial and deep layers of the EC are clamped to the same layer. The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. These numbers are based on anatomical data from the rat hippocampal formation \cite{amaral1990chapter, cutsuridis2010hippocampal} and are scaled down (see \cite{neher2015memory} for details). Neurons in our model are binary, i.e., they either fire or are silent reflected by a value of $1$ or $0$, respectively \cite{fontanari1995model}.
+The model includes the entorhinal cortex (EC), CA3 and CA1. The superficial and deep layers of the EC are clamped to the same layer. 
+
+%Kloosterman et al. showed that electrical stimulation of sites within the CA1 field evokes activity concurrently in both the superficial and deep layers of the EC. This findings suggest that the deep and superficial layers of the EC act as a single functional entity, rather than as separate structures \cite{kloosterman2000functional}.
+
+Recent findings indicating that reciprocal interactions between deep and superficial layers of the EC are quite substantial \cite{canto2008does}, and that the deep and superficial layers of the EC might act as a single functional entity, rather than as separate structures \cite{kloosterman2000functional}.
+
+The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. These numbers are based on anatomical data from the rat hippocampal formation \cite{amaral1990chapter, cutsuridis2010hippocampal} and are scaled down (see \cite{neher2015memory} for details). Neurons in our model are binary, i.e., they either fire or are silent reflected by a value of $1$ or $0$, respectively \cite{fontanari1995model}.
 
 
 First, the activation $h^i$ of the receiving cell $i$ is calculated as the weighted sum of its inputs $u^j$
