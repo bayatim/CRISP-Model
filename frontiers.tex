@@ -59,8 +59,6 @@ $^{3}$Mental Health Research and Treatment Center, Department of Clinical Child 
 
 
 \maketitle
-
-
 Running title: Sequence Memory Storage in the Hippocampal Circuit\\
 Number of text pages: 28\\
 Number of figures: 13\\
@@ -143,7 +141,16 @@ Here we implement the CRISP theory in a neural network model to store and retrie
 \subsection*{Model Architecture and Activation Function}
 
 
-The model includes the entorhinal cortex (EC), CA3 and CA1. The superficial and deep layers of the EC are clamped to the same layer. The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. These numbers are based on anatomical data from the rat hippocampal formation \cite{amaral1990chapter, cutsuridis2010hippocampal} and are scaled down (see \cite{neher2015memory} for details). Neurons in our model are binary, i.e., they either fire or are silent reflected by a value of $1$ or $0$, respectively \cite{fontanari1995model}.
+The model includes the entorhinal cortex (EC), CA3 and CA1. The superficial and deep layers of the EC are clamped to the same layer. 
+
+%Kloosterman et al. showed that electrical stimulation of sites within the CA1 field evokes activity concurrently in both the superficial and deep layers of the EC. This findings suggest that the deep and superficial layers of the EC act as a single functional entity, rather than as separate structures \cite{kloosterman2000functional}.
+
+Recent findings indicate that reciprocal interactions between deep and superficial layers of the EC are quite substantial \cite{canto2008does}, and that the deep and superficial layers of the EC might act as a single functional entity, rather than as separate structures \cite{kloosterman2000functional}.
+
+The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. The parameter $N$ is chosen based on anatomical data from the rat hippocampal formation \cite{amaral1990chapter, cutsuridis2010hippocampal} and is scaled down by the factor of $100$ in order to reduce the computational cost (see \cite{neher2015memory} for details). The connectivity parameter is set to $\% 32$; Why? 
+
+
+Neurons in our model are binary, i.e., they either fire or are silent reflected by a value of $1$ or $0$, respectively \cite{fontanari1995model}.
 
 
 First, the activation $h^i$ of the receiving cell $i$ is calculated as the weighted sum of its inputs $u^j$
@@ -169,7 +176,11 @@ Thus, inhibitory cells are not modeled explicitly but rather through their effec
 \label{ca3:models}
 
 
-We explore four models for CA3, in which the synaptic weights are either hand-wired or trained. Another important aspect in CRISP is whether the CA3 dynamics generate sequences intrinsically during storage (first three models) or CA3 activity patterns are driven by EC inputs (fourth model). These models are described below.
+We explore three models for CA3, in which the synaptic weights are either hand-wired or trained. 
+
+Another important aspect in CRISP is whether the CA3 dynamics generate sequences intrinsically during storage (first two models) or CA3 activity patterns can be driven partly by EC inputs, as well (third model). 
+
+These models are described below.
 In all networks, non-existing connections are modelled as connections with zero weight.
 
 \begin{enumerate}
@@ -183,11 +194,26 @@ Therefore, the activation $h^i$ of the receiving cell $i$ depends on its activit
 h^{i}_{t} = (1 - J y^{i}_{t-1}) \sum_{j = 1}^{N_\mathrm{in}} {{w^{ij} y^{j}_{t-1}}}
 \end{align}
 
-\item \textit{Pre-trained network with sparse connectivity:} The connectivity is established like for a RCN, but the weights of existing connections are determined in a pre-training stage. To drive plasticity in this stage, we externally apply sequences of random or grid patterns to the CA3 network and hetero-associate them successively (Eq.~\ref{heteroca3Eq}). As a result, the CA3 recurrent network learns the sequences of random or grid patterns. We denote these networks PTR and PTG, respectively.
-\item \textit{Input-driven network (IDN):} CA3 activity patterns are driven by EC inputs \textit{during the learning phase}. The CA3 recurrent network learns the externally imposed sequences through successive hetero-associations (Eq.~\ref{heteroca3Eq}).
+%\item \textit{Pre-trained network with sparse connectivity:} The connectivity is established like for a RCN, but the weights of existing connections are determined in a pre-training stage. To drive plasticity in this stage, we externally apply sequences of random or grid patterns to the CA3 network and hetero-associate them successively (Eq.~\ref{heteroca3Eq}). As a result, the CA3 recurrent network learns the sequences of random or grid patterns. We denote these networks PTR and PTG, respectively.
+\item \textit{Dual-driven network (DDN):} The connectivity is established like for a RCN.
+
+CA3 activity patterns are driven jointly by EC inputs and CA3 collateral inputs \textit{during the learning phase}.
+
+We use the parameter ($0 \leq \alpha \leq 1$) to control the contribution of two inputs in the activity of each cell. 
+
+Therefore, the activation $h^i$ of the receiving cell $i$ depends on the activity of the CA3 network in the previous time step and the concurrent activity in the EC.
+\begin{align}
+\label{eq:adaptation}
+h^{i}_{t} = (1 - \alpha) \sum_{j = 1}^{N^{CA3}_\mathrm{in}} {{w^{ij} y^{j}_{t-1}}} + \alpha \sum_{j = 1}^{N^{EC}_\mathrm{in}} {{w^{ij} y^{j}_{t}}} 
+\end{align}
+According to this equation, when $\alpha = 0$ the network activity is driven intrinsically. On the other hand, when $\alpha = 1$, the network activity is purely driven by EC inputs.     
+
+The CA3 recurrent network learns the sequences through successive hetero-associations (Eq.~\ref{heteroca3Eq}).
 \end{enumerate}
 
-During the learning phase, input patterns from EC are hetero-associated with network states in CA3. In the first three models, CA3 dynamics has to be triggered. Once initialized, the next pattern in CA3 is generated according to Eqs.~\ref{activation} and \ref{eq:kWTA}. When LCN is used, Eq.~\ref{activation} is replaced by Eq.~\ref{eq:adaptation}. The initialization pattern is adjusted according to the CA3 model: for the RCN, it is a random pattern; for the LCN, it is a local bump-shape pattern in a random location; and for the PTR and PTG, it is a pattern stored during pre-training. When studying the robustness of the CA3 dynamics to noise, and only then, we add different levels of noise to these initialization patterns.
+During the learning phase, input patterns from EC are hetero-associated with network states in CA3. In all models, CA3 dynamics has to be triggered. Once initialized, the next pattern in CA3 is generated according to Eqs.~\ref{activation} and \ref{eq:kWTA}. When LCN is used, Eq.~\ref{activation} is replaced by Eq.~\ref{eq:adaptation}. The initialization pattern is adjusted according to the CA3 model: for the RCN and DDN, it is a random pattern; for the LCN, it is a local bump-shape pattern in a random location.
+
+%When studying the robustness of the CA3 dynamics to noise, and only then, we add different levels of noise to these initialization patterns.
 
 \subsection{Input Statistics}
 
@@ -195,14 +221,14 @@ To test the ability of each network to store memory sequences, we generate $P = 
 \begin{equation}
 	\{ u_{l,m}: 1\le l \le L, 1\le m \le M \}
 \end{equation}
-Since we recently found that the statistics of the stored patterns have a large impact on the memory performance of a network \cite{neher2015memory}, we consider two different types of inputs to EC: Random and grid cell \cite{hafting2005microstructure} patterns. 
+Since we recently found that the statistics of the stored patterns have a large impact on the memory performance of a network \cite{neher2015memory}, we consider the more realistic entorhinal grid cell input patterns to EC \cite{hafting2005microstructure}. 
 
 
-\textit{Random Patterns:} 
-In each pattern, the activity of $k$ randomly chosen cells is set to one, all others are set to zero. 
 
-\textit{Grid Cell patterns:}
-A number of cells in the medial entorhinal cortex (MEC) of many species, called grid cells, are place-modulated neurons with discrete firing fields arranged in a periodic hexagonal lattice \cite{hafting2005microstructure}. The grid cell properties are extracted from~\cite{stensola2012entorhinal} to match the experimental data. We divided the grid cell population into four modules \cite{stensola2012entorhinal}. Cells belonging to the same module have similar grid spacing and orientation, but different spatial phases. Most grid cells ($87\%$) belong to the two modules with small spacings \cite{stensola2012entorhinal}. Each cell is equipped with a hexagonal grid of place fields with equal size. The activation of grid cell $i$ at location $\mathbf{r}=(x,y)$ is determined by
+%\textit{Random Patterns:} In each pattern, the activity of $k$ randomly chosen cells is set to one, all others are set to zero. 
+
+%\textit{Grid Cell patterns:}
+The grid cell patterns are generated as follows: A number of cells in the medial entorhinal cortex (MEC) of many species, called grid cells, are place-modulated neurons with discrete firing fields arranged in a periodic hexagonal lattice \cite{hafting2005microstructure}. The grid cell properties are extracted from~\cite{stensola2012entorhinal} to match the experimental data. We divided the grid cell population into four modules \cite{stensola2012entorhinal}. Cells belonging to the same module have similar grid spacing and orientation, but different spatial phases. Most grid cells ($87\%$) belong to the two modules with small spacings \cite{stensola2012entorhinal}. Each cell is equipped with a hexagonal grid of place fields with equal size. The activation of grid cell $i$ at location $\mathbf{r}=(x,y)$ is determined by
 \begin{equation}
 \label{eq:grid}
 h^i(\mathbf{r}) = A^{ij} \exp \left[ -\ln(5) \left(\frac{d(\mathbf{r})}{\sigma^i}\right)^2 \right],
