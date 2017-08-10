@@ -141,17 +141,24 @@ Here we implement the CRISP theory in a neural network model to store and retrie
 \subsection*{Model Architecture and Activation Function}
 
 
-The model includes the entorhinal cortex (EC), CA3 and CA1. The superficial and deep layers of the EC are clamped to the same layer. 
+The model includes the entorhinal cortex (EC), CA3 and CA1. 
 
 %Kloosterman et al. showed that electrical stimulation of sites within the CA1 field evokes activity concurrently in both the superficial and deep layers of the EC. This findings suggest that the deep and superficial layers of the EC act as a single functional entity, rather than as separate structures \cite{kloosterman2000functional}.
 
 Recent findings indicate that reciprocal interactions between deep and superficial layers of the EC are quite substantial \cite{canto2008does}, and that the deep and superficial layers of the EC might act as a single functional entity, rather than as separate structures \cite{kloosterman2000functional}.
 
+On this account, the superficial and deep layers of the EC are clamped to the same layer. 
+
 The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. The parameter $N$ is chosen based on anatomical data from the rat hippocampal formation \cite{amaral1990chapter, cutsuridis2010hippocampal} and is scaled down by the factor of $100$ in order to reduce the computational cost (see \cite{neher2015memory} for details). The connectivity parameter is set to $\% 32$; Why? 
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=1.\linewidth]{Fig_1.eps}
+\caption{\textbf{Model Overview.} \textbf A: The three subregions EC, CA3 and CA1 are modeled. $a$ denotes the proportion of cells being active at any given time. Arrows indicate connectivity among regions. Solid black lines indicate fixed random connections, solid green line represent plastic connections that are adjusted during learning, and dashed lines show connections that could be either fixed (using hand-wired models for CA3) or plastic (using EC-input and intrinsic input to train CA3 weights). The number next to the arrows show the number of connections a cell in the downstream region has with cells in the upstream region.}
+\label{Fig_1}
+\end{figure}
 
 
 Neurons in our model are binary, i.e., they either fire or are silent reflected by a value of $1$ or $0$, respectively \cite{fontanari1995model}.
-
 
 First, the activation $h^i$ of the receiving cell $i$ is calculated as the weighted sum of its inputs $u^j$
 \begin{align}
@@ -168,7 +175,8 @@ where $w^{ij}$ is the strength of the connection from cell $j$ to cell $i$ and i
 	\end{array} \right.
 	\label{eq:binary}
 \end{eqnarray}
-The number $k$ is determined by the sparsity $a$ of that region, i.e., $k = aN$ (Fig.~\ref{Fig_1}). 
+The number k is chosen uniformly from the interval $ [aN - \delta , Na + \delta ]$. The parameter a is the sparsity of the activity in the corresponding region and $\delta = \% 10 N$. This ensures that a different number of k cells is recruited for every pattern (Fig.~\ref{Fig_1}). 
+
 Thus, inhibitory cells are not modeled explicitly but rather through their effect on a population level \cite{renno2010mechanism, roudi2008representing, moustafa2009neurocomputational, appleby2011role, monaco2011modular}.
 
 
@@ -561,11 +569,7 @@ Compared to previous models, CRISP uses a radically different mechanism for stor
 
 \section*{Figure Legends}
 
-\begin{figure}[!htb]
-\centering\includegraphics[width=1.\linewidth]{Fig_1.eps}
-\caption{\textbf{Model Overview.} \textbf A: The three subregions EC, CA3 and CA1 are modeled. $a$ denotes the proportion of cells being active at any given time. Arrows indicate connectivity among regions. Solid black lines indicate fixed random connections, solid green line represent plastic connections that are adjusted during learning, and dashed lines show connections that could be either fixed (using hand-wired models for CA3) or plastic (using EC-input or external patterns to train CA3 weights). The number next to the arrows show the number of connections a cell in the downstream region has with cells in the upstream region.}
-\label{Fig_1}
-\end{figure}
+
 
 \begin{figure}[!htb]
 \caption{\textbf{Memory storage and retrieval} \textbf A: To store a sequence $(u_1 , . . . ,u_T)$ that represents an episodic memory, an intrinsic sequence $(y_1 , . . . ,y_T)$ is activated in CA3 and each element $u_t$ is associated with a particular CA3 state $y_t$. This association occurs via Hebbian plasticity at the perforant path synapse from EC II to CA3. \textbf B: Retrieval of a stored memory sequence from CA3 based on a partial input cue $u^{'EC}_t$. The retrieved elements (patterns) are noisy and are cleaned up by the CA1–EC network.}
