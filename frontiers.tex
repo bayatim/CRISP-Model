@@ -2,7 +2,7 @@
 % This is just an example/guide for you to refer to when submitting manuscripts to Frontiers, it is not mandatory to use Frontiers .cls files nor frontiers.tex  %
 % This will only generate the Manuscript, the final article will be typeset by Frontiers after acceptance.   
 %                                              %
-%                                                                                                                                                         %
+%                                                                                                                                                         
 % When submitting your files, remember to upload this *tex file, the pdf generated with it, the *bib file (if bibliography is not within the *tex) and all the figures.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -14,6 +14,11 @@
 \documentclass[utf8]{frontiersSCNS} % for Science, Engineering and Humanities and Social Sciences articles
 %\documentclass[utf8]{frontiersHLTH} % for Health articles
 %\documentclass[utf8]{frontiersFPHY} % for Physics and Applied Mathematics and Statistics articles
+
+
+\bibliographystyle{frontiersinSCNS_ENG_HUMS} % for Science, Engineering and Humanities and Social Sciences articles, for Humanities and Social Sciences articles please include page numbers in the in-text citations
+%\bibliographystyle{frontiersinHLTH&FPHY} % for Health, Physics and Mathematics articles
+
 
 %\setcitestyle{square} % for Physics and Applied Mathematics and Statistics articles
 \usepackage{url,hyperref,lineno,microtype,subcaption}
@@ -36,7 +41,7 @@
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
 \def\Address{$^{1}$Institut f\"ur Neuroinformatik, Ruhr-Universit\"at Bochum, D-44801 Bochum, Germany \\
 $^{2}$Mercator Research Group 'Structure of Memory', Ruhr-University Bochum, Bochum, Germany \\
-$^{3}$Mental Health Research and Treatment Center, Department of Clinical Child and Adolescent Psychology, Faculty of Psychology, Ruhr University Bochum, Bochum, Germany  }
+$^{3}$Mental Health Research and Treatment Center, Department of Clinical Child and Adolescent Psychology, Faculty of Psychology, Ruhr University Bochum, Bochum, Germany}
 % The Corresponding Author should be marked with an asterisk
 % Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
 \def\corrAuthor{Corresponding Author}
@@ -100,34 +105,39 @@ Modeling CA3 as a fixed randomly connected network facilitates decoding, but seq
 %
 On the other hand, using a fixed locally connected network, the stored sequences are retrieved robustly, but the correlations between successive patterns impair pattern completion when decoding the CA3 patterns. 
 %
-Combining the advantages of both models, plastic networks, that generate mutually uncorrelated pattern sequences and allow a hetero-association between them, achieve a good overall memory performance, because sequences in CA3 are encoded robustly and do not impair decoding in the feedforward connections to CA1 and EC.
+Combining the advantages of both models, networks, that generate mutually uncorrelated pattern sequences and allow a hetero-association between them, achieve a good overall memory performance, because sequences in CA3 are encoded robustly and do not impair decoding in the feedforward connections to CA1 and EC.
+%
+The dynamics of the later network can be driven jointly by the CA3 connections and the EC inputs.
+%
+Our results suggest that the contribution of the recurrent CA3 connections on the CA3 dynamics is essential during learning, and that it removes correlations between the EC input patterns and allow an efficient sequence memory storage.
 %
 In conclusion, the cortico-hippocampal circuit can robustly store and retrieve sequences of patterns, but  memory performance critically depends on the network architecture in CA3. 
-
-
-%Furthermore, to work properly CA3 requires memory patterns that are mutually uncorrelated.
-%surprisingly, we find that an auto-associative CA3 net is redundant for random inputs up to moderate noise levels and is only beneficial at high noise levels. When grid cell input is presented, auto-association is even harmful for memory performance at all levels. Furthermore, we find that Hebbian learning in the dentate gyrus does not support its function as a pattern separator.
-
-%Our argument based on this information suggests, then, that an input system with the characteristics of the mossy fibers is essential during learning, in that it may act as a sort of (unsu- pervised) teacher that effectively strongly influences which CA3 neurons fire based on the pattern of granule cell activity.
-%\tiny
+%
 % \keyFont{ \section{Keywords:} keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
- 
 
 
-
-
-\section*{Introduction}
+\section{Introduction}
 Memory is not a unitary system, but is rather a collection of several different systems that, in some cases involves distinct regions of the brain. Tulving (1972) has suggested episodic memory as a separate memory system that stores memories of personally experienced events \cite{tulving1972episodic}. The hippocampus has been implicated in the acquisition and consolidation of new episodic memories in humans. Patients with damage to the hippocampus and nearby brain areas suffer from severe anterograde amnesia \cite{scoville1957loss, milner1968further}. Hippocampal lesions in animal models impair learning and memory, too. For instance, hippocampal rats are impaired at associating time-delayed stimuli \cite{gluck2001gateway} and the object-cued retrieval of paired associate memory, even in the absence of a delay \cite{yoon2012hippocampus}. Most prominently, rats have severe deficits in spatial learning after hippocampal lesions \cite{morris1982place}.
 
 Multiple studies implicate the hippocampus in temporal sequence learning. Rats with hippocampal lesions have difficulty remembering sequences of spatial locations \cite{chiba1994memory} and hippocampal lesions impair a rat's ability to learn which odor came first in sequence of odors \cite{fortin2002critical}. Agster et al. showed that hippocampal rats had deficits disambiguating the overlapping odor sequences \cite{agster2002hippocampus}. After rats run through the place fields of hippocampal CA1 place cells causing the place cells to fire in a fixed order, the cells become active in the same sequences during sleep \cite{lee2002memory}. A number of other studies have also found such replay of temporal sequences in the hippocampus during sleep \cite{louie2001temporally, kudrimoti1999reactivation, qin1997memory, skaggs1996replay}.      
 
-However, it remains controversial, whether nonhuman animals possess the same capacity for episodic memory as humans do \cite{suddendorf2007evolution, cheng2016dissociating}. Some authors have adopted the view that the essential aspect of episodic memory is the information about the what, where, and when of an experienced event, and have been able to show that a variety of species are able to store such  memories\cite{babb2006episodic, clayton1998episodic, dally2006food, zentall2001episodic, dere2005episodic, kaminski2008prospective, hoffman2009memory}. Nevertheless, even these authors refer to the memory of what-where-when as episodic-like memory in recognition that human episodic memory might be more, or different, than that.
+%However, it remains controversial, whether nonhuman animals possess the same capacity for episodic memory as humans do \cite{suddendorf2007evolution, cheng2016dissociating}. Some authors have adopted the view that the essential aspect of episodic memory is the information about the what, where, and when of an experienced event, and have been able to show that a variety of species are able to store such  memories\cite{babb2006episodic, clayton1998episodic, dally2006food, zentall2001episodic, dere2005episodic, kaminski2008prospective, hoffman2009memory}. Nevertheless, even these authors refer to the memory of what-where-when as episodic-like memory in recognition that human episodic memory might be more, or different, than that.
 
 Another important issue is how the hippocampal circuit, whose structure is preserved across all mammals \cite{allen2013evolution}, stores and retrieves memories. A number of theories have been proposed \cite{treves1992computational, marr1991simple, mcclelland1995there, HIPO:HIPO450020209}. 
-Based on its anatomical and physiological properties the hippocampus can be divided into the DG, which includes a large number of small granule cells with low activity \cite{leutgeb2007pattern}, and the CA3, CA2 and CA1 regions consisting of a homogeneous set of pyramidal cells. CA3 is famous for its recurrent collaterals \cite{ishizuka1990organization, li1994hippocampal}, and the connections between the subregions are established in a feedforward manner \cite{amaral1990chapter}. Over the last decades, a standard framework has emerged and has been tested regarding hippocampal functioning (for example see \cite{fontanari1995model}). It postulates that cortical inputs drive plasticity in the recurrent CA3 synapses to store patterns rapidly in its recurrent connections. Hence, the CA3 region functions as an auto-associative memory \cite{marr1991simple, mcnaughton1987hippocampal, treves1994computational, o1994hippocampal}. The feedforward structure of the connectivity between the hippocampal subregions \cite{amaral1990chapter} has been less in focus until recently \cite{neher2015memory, pyka2014pattern}.  
+Based on its anatomical and physiological properties the hippocampus can be divided into the DG, which includes a large number of small granule cells with low activity \cite{leutgeb2007pattern}, and the CA3, CA2 and CA1 regions consisting of a homogeneous set of pyramidal cells. CA3 is famous for its recurrent collaterals \cite{ishizuka1990organization, li1994hippocampal}, and the connections between the subregions are established in a feedforward manner \cite{amaral1990chapter}.
+%
+Despite the importance of the CA3 area in memory function, its underlying synaptic mechanisms are poorly understood. Guzman et al. found sparse connections (around $\%$1) but non-random and highly enriched in disynaptic connectivity motifs between CA3 neurons,(\cite guzman), which is proposed to serve as efficient memory storage and retrieval in this brain region \cite{guzman2016synaptic}. 
 
-Addressing both aforementioned issues, we have recently proposed that episodic memory is best thought of as sequences of activity patterns \cite{cheng2016episodic} and that the hippocampal circuitry, including the feedforward projections  between regions and the recurrent network in CA3, has been optimized for the storage of pattern sequences \cite{cheng2013crisp}. One of the main features of this theory, called CRISP, is that plasticity in the recurrent CA3 is not necessary for rapid learning and synaptic weights remain relatively fixed during memory storage \cite{nakazawa2003hippocampal, cravens2006ca3}. In CRISP, neural sequences are intrinsic to CA3. To store episodic memories, sequences of external input patterns are mapped onto these intrinsic sequences through synaptic plasticity in the feedforward projections \cite{willshaw1969non} (see section Materials and Methods for details).
+
+
+Over the last decades, a standard framework has emerged and has been tested regarding hippocampal functioning (for example see \cite{fontanari1995model}). It postulates that cortical inputs drive plasticity in the recurrent CA3 synapses to store patterns rapidly in its recurrent connections. Hence, the CA3 region functions as an auto-associative memory, performing pattern completion when a partial and noisy cue is provided \cite{marr1991simple, mcnaughton1987hippocampal, treves1994computational, o1994hippocampal, rolls2007attractor, guzman2016synaptic}. Experimental studies support the auto-associative memory function of CA3. For instance, rats with lesioned CA3 are impaired in remembering a location when parts of the spatial cues are removed \cite{gold2005role}. Another study argues that spatial pattern completion requires plasticity in the recurrent CA3 synapses \cite{nakazawa2002requirement}. 
+
+However, the standard framework has several weaknesses and cannot account for some recent observations in the hippocampal formation. For instance, the standard framework cannot explain offline sequential activity (OSA) in awake animals \cite{cheng2013crisp}, which was found to be important for spatial learning \cite{jadhav2012awake}. The standard framework assumes that cortical inputs drive plasticity in the recurrent CA3 synapses to rapidly imprint memories as attractor states in CA3. However, this assumption is not consistent with recent experimental findings on OSA in the awake state. Novel sequences that were never experienced by the animal are played out independently of the preceding experience \cite{gupta2010hippocampal} (for a review, see \cite{dragoi2011preplay}). These sequences are potentially used to predict immediate future behaviour and are generated even in cases, in which the specific combination of start and goal locations is novel \cite{pfeiffer2013hippocampal}. All together, these sequential activities, perhaps representing episodic memories, appear to be intrinsic to the hippocampal network rather than imprinted by external inputs \cite{cheng2013crisp}. Recently proposed computational models tried to explain how CA3 might generate these intrinsic sequences to account for preplay \cite{azizi2013computational, romani2015short}. 
+
+Furtheremore, the feedforward structure of the connectivity between the hippocampal subregions \cite{amaral1990chapter} has been less in focus until recently \cite{neher2015memory, pyka2014pattern}.  
+
+Addressing the aforementioned issues, we have recently proposed that episodic memory is best thought of as sequences of activity patterns \cite{cheng2016episodic} and that the hippocampal circuitry, including the feedforward projections  between regions and the recurrent network in CA3, has been optimized for the storage of pattern sequences \cite{cheng2013crisp}. One of the main features of this theory, called CRISP, is that plasticity in the recurrent CA3 is not necessary for rapid learning and synaptic weights remain relatively fixed during memory storage \cite{nakazawa2003hippocampal, cravens2006ca3}. In CRISP, neural sequences are intrinsic to CA3. To store episodic memories, sequences of external input patterns are mapped onto these intrinsic sequences through synaptic plasticity in the feedforward projections \cite{willshaw1969non} (see section Materials and Methods for details).
 Many models for generating activity sequences in recurrent networks have been established and tested computationally \cite{sussillo2009generating, lazar2009sorn, rajan2016recurrent, jaeger2001echo, kropff2007complexity, bayati2015self}. However, the robustness of these models in regenerating the sequences with respect to cue noise has rarely been studied.
 
 
@@ -146,12 +156,12 @@ Our neural network architecture is largely based on our previous work \cite{nehe
 While our previous work focused on storing static patterns, here we use a similar network architecture to store sequences in the hippocampal network. Sequence memory storage comes with entirely different challenges, requires different analyses and reveals different insights into the role of neural dynamics in CA3. 
 
 % authors may use "Analysis" 
-\section*{Materials and Methods}
+\section{Materials and Methods}
 
 
 
 
-\subsection*{Model Architecture and Activation Function}
+\subsection{Model Architecture and Activation Function}
 
 
 The model includes the entorhinal cortex (EC), CA3 and CA1. 
@@ -163,6 +173,9 @@ Recent findings indicate that reciprocal interactions between deep and superfici
 On this account, the superficial and deep layers of the EC are clamped to the same layer. Please notice that this does not mean that we close the loop, namely the activities in the EC outputs do not propagate, via the EC input, through the network.
 
 The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. The parameter $N$ is chosen based on anatomical data from the rat hippocampal formation \cite{amaral1990chapter, cutsuridis2010hippocampal} and is scaled down by the factor of $100$ in order to reduce the computational cost (see \cite{neher2015memory} for details). The connectivity parameter is set to $\% 32$. 
+%
+Although, it seems that the connectivity in CA3 is very sparse ($< \%$10) \cite{guzman2016synaptic}, we used a criteria of relational increase in the connectivity when scaling down the number of neurons. This ensures the enough number of existed connection (capacity), which are necessary for storing the sparse patterns (around $\%$ 5) in the network.  Furthermore, it allows rapid associative, one trial, learning in the CA3 recurrent network.
+%
 We run the simulation for more diluted and dense connectivity, but the results do not change. 
 
 \begin{figure}[!htb]
@@ -236,6 +249,8 @@ h^{i}_{t} = (1 - \alpha) \sum_{j = 1}^{N^{CA3}_\mathrm{in}} {{w^{ij} y^{j}_{t-1}
 Therefore, when $\alpha = 0$ the network activity is driven intrinsically. On the other hand, when $\alpha = 1$, the network activity is driven merely by EC inputs. The in-between $\alpha$ values allow contribution of both inputs based on Eq.~\ref{activationLCN}.        
 
 The CA3 recurrent network learns the sequences through successive hetero-associations (see subsection~\ref{learning}).
+%
+Note that here we study the sequence memory storage in CA3, which is different from its suggested autoassociative function. We associate each network activity with its next one in the CA3 network, but the autoassociation happens between the active neurons in a single pattern.
 \end{enumerate}
 
 During the learning phase, input patterns from EC are hetero-associated with network states in CA3. In all models, CA3 dynamics has to be triggered. Once initialized, the next pattern in CA3 is generated according to Eqs.~\ref{activationRCN}, \ref{activationLCN}, or \ref{activationDDN}, and \ref{eq:kWTA}.
@@ -327,13 +342,13 @@ After applying the learning rules, the Euclidean norm of the vector $w^i$ of inc
 \label{S:4}
 
 After all sequences are stored in the network, we initiate recall by setting EC to a noisy recall cue $u'_{l, 1}$.  The recall cue is generated by modifying the first pattern of the stored sequence $u_{l, 1}$, such that a number of active neurons is randomly set to be in-active and the same number of in-active neurons is set to be active. 
-
+%
 Therefore, the cue pattern and its corresponding original one have always the same number of active neurons. 
+ 
 
 The quality of the recall cue is controlled by the number of cells that fire incorrectly and is measured by the Pearson correlation between the original pattern and the recall cue (see below). We test the model performance with $6$ different recall cue qualities which range between 0 and 1, namely $ u'_{l, 1} \in \{ 0, .2, .4, .6, .8, 1 \} $.       
 %
 The recall cue triggers a pattern $\tilde{y}_{l, 1}$ in CA3 directly via the previously learned weights from EC to CA3 and subsequently generates an intrinsic sequence ($\tilde{y}_{l, 2}, \tilde{y}_{l, 3}, \ldots$). This sequence is transferred to CA1 ($\tilde{x}_{l, 1}, \tilde{x}_{l, 2}, \ldots$) and from CA1 back to EC ($\tilde{u}_{l, 1}, \tilde{u}_{l, 2}, \ldots$). Fig.~\ref{Fig_2}B illustrates the retrieval process in our model. 
-
 
 \subsection{Analysis}
 
@@ -626,7 +641,19 @@ For the DDN(<.8), the correlations between the retrieved patterns and their orig
 
 \section{Discussion}
 
-We have investigated the storage and retrieval of memory sequences in the hippocampal circuit based on the recently proposed CRISP theory. CRISP is based on intrinsic sequences in CA3, and pattern completion in feedforward projections. We found that the performance of the network model that implements CRISP critically depends on the CA3 dynamics in generating robust sequences. Furthermore, the correlations between different stored patterns deteriorate pattern completion in feedforward networks. For instance when modeling CA3 as a LCN, stored sequence are retrieved robustly within CA3, but the  correlations between patterns within a sequence impair pattern completion when decoding CA3 patterns. In contrast to LCN, a RCN facilitates decoding, but sequence retrieval fails if any noise is present. It turns out that the model for the CA3 dynamics that has the best memory performance is one that was trained independently from EC on random pattern sequences. The resulting network generates uncorrelated and robust sequences of activity patterns. 
+We have investigated the storage and retrieval of memory sequences in the hippocampal circuit based on the recently proposed CRISP theory. CRISP is based on intrinsic sequences in CA3, and pattern completion in feedforward projections. We found that the performance of the network model that implements CRISP critically depends on the CA3 dynamics in generating robust sequences. Furthermore, the correlations between different stored patterns deteriorate pattern completion in feedforward networks. For instance when modeling CA3 as a LCN, stored sequence are retrieved robustly within CA3, but the  correlations between patterns within a sequence impair pattern completion when decoding CA3 patterns. In contrast to LCN, a RCN facilitates decoding, but sequence retrieval fails if any noise is present.
+%
+It turns out that the DDN model for the CA3 dynamics, that generates mutually uncorrelated and robust memory sequences of activity patterns, has the best memory performance and 
+%
+Including only about $20\%$ of the intrinsic CA3 dynamics is sufficient to remove the grid correlations between the EC input patterns and allow an efficient sequence memory storage.   
+%
+
+One may argue why only the first pattern in a sequence is evoking the response in CA3, and none of the following EC patterns, which were used to train the network, affects the network dynamics in CA3 (see Figs.~\ref{Fig_3} and \ref{Fig_6}.  
+Note that we aim to test the network performance in sequence retrieval and because of that, we provide the simple cue which is the corrupted version of the first pattern in the stored sequence. Then, the network retrieves the rest of the sequence, heavily based on sequence retrieval in CA3. 
+However, providing the whole patterns of a stored sequence in EC intervene the CA3 dynamics during the sequence completion and might prevent the efficient sequence retrieval in CA3. This is highly depends on the nature of the patterns that are used in EC and the performance of the EC-CA3 projections in pattern completion. Since we fed the EC with grid patterns, it deteriorates the pattern completion from EC to CA3. Therefore, if a complete sequence in EC is used as an input cue, it definitely reduces the CA3 performance when retrieving the sequence.
+
+If we provide the EC with any of the corrupted pattern in the sequence, the same results are given when retrieving the same length of the sequence.  
+
 
 
 Intrinsically generated sequences have been observed in a number of different studies. During the delay period in an ongoing task, hippocampal neurons fire in a reproducible temporal sequence \cite{pastalkova2008internally, macdonald2011hippocampal}.  Sequential activities were observed in an offline state before rodents explore a novel environment, which were correlated with the ordering of place fields in the novel environment (preplay) \cite{dragoi2011preplay}. This preplay phenomenon suggests that the offline sequences could not have been established by external sensory inputs and are intrinsic to CA3 \cite{azizi2013computational}. These observations are difficult to reconcile with the standard framework. The pool of intrinsic sequences in CA3 might be established during development and/or during extended rest periods.  
@@ -634,14 +661,19 @@ Intrinsically generated sequences have been observed in a number of different st
 
 \subsection{Comparison of CRISP to the Standard Framework}
 
-The standard framework postulates that CA3 with its massive recurrent connections behaves as an attractor network, performing pattern completion when a partial and noisy cue is provided \cite{mcnaughton1987hippocampal, rolls2007attractor}. Experimental studies support the auto-associative memory function of CA3. For instance, rats with lesioned CA3 are impaired in remembering a location when parts of the spatial cues are removed \cite{gold2005role}. Another study argues that spatial pattern completion requires plasticity in the recurrent CA3 synapses \cite{nakazawa2002requirement}. However, the standard framework has several weaknesses and cannot account for some recent observations in the hippocampal formation. 
+%Many researchers have proposed that recurrent synapses amongst CA3 pyramidal cells endow the CA3 network with autoassociative and heteroassociative properties (Lisman, 1999;
 
-Firstly, neither plasticity in CA3 nor CA3 itself seems necessary for memory storage. Animals with CA3 impairment can successfully retrieve the goal location when all training cues are available \cite{nakazawa2002requirement, gold2005role, fellini2009pharmacological}. On the other hand, animals with complete hippocampal lesions show learning deficits even when all the cues are available \cite{gilbert1998memory, morris1982place}. Taken together, these results suggest that CA3 is not the actual place of memory storage, which must occur in parts of the hippocampus outside of CA3 \cite{cheng2013crisp}. 
+%The findings summarized in the preceding paragraphs form the basis of the view that the CA3 region is not an  autoassociative network, as previously proposed (autoassociation would symmetrically link Jerry and dropped  and candy). Rather, according to second generation models (Blum and Abbott, 1996; Jensen and Lisman,1996a; Levy, 1996; Tsodyks et al., 1996; Wallenstein and Hasselmo, 1997), CA3 is a heteroassociative network that links different memories that occurred at different times (heteroassociation asymmetrically links “Jerry dropped candy” to “monkey reached through cage andgrabbed it”). The next section will develop the idea thatthe reciprocally connected dentate and CA3 networks provide a solution to the special problems that arise when attempting to accurately recall sequences.
 
-Secondly, the standard framework cannot explain offline sequential activity (OSA) in awake animals \cite{cheng2013crisp}, which was found to be important for spatial learning \cite{jadhav2012awake}. The standard framework assumes that cortical inputs drive plasticity in the recurrent CA3 synapses to rapidly imprint memories as attractor states in CA3. However, this assumption is not consistent with recent experimental findings on OSA in the awake state. Novel sequences that were never experienced by the animal are played out independently of the preceding experience \cite{gupta2010hippocampal} (for a review, see \cite{dragoi2011preplay}). These sequences are potentially used to predict immediate future behaviour and are generated even in cases, in which the specific combination of start and goal locations is novel \cite{pfeiffer2013hippocampal}. All together, these sequential activities, perhaps representing episodic memories, appear to be intrinsic to the hippocampal network rather than imprinted by external inputs \cite{cheng2013crisp}. Recently proposed computational models tried to explain how CA3 might generate these intrinsic sequences to account for preplay \cite{azizi2013computational, romani2015short}. 
-
+%Firstly, neither plasticity in CA3 nor CA3 itself seems necessary for memory storage. Animals with CA3 impairment can successfully retrieve the goal location when all training cues are available \cite{nakazawa2002requirement, gold2005role, fellini2009pharmacological}. On the other hand, animals with complete hippocampal lesions show learning deficits even when all the cues are available \cite{gilbert1998memory, morris1982place}. Taken together, these results suggest that CA3 is not the actual place of memory storage, which must occur in parts of the hippocampus outside of CA3 \cite{cheng2013crisp}. 
 
 Finally, the standard framework mostly focuses on an isolated CA3 network and neglects the inevitable encoding and decoding in feedforward projections. It has been shown computationally that hetero-associative projections are capable of reconstructing the memory of grid cell patterns even when the recurrent connections (auto-associative function) in CA3 are removed \cite{neher2015memory}. This study illustrates how essential it is to consider the whole hippocampal loop while investigating individual functional roles of the subregions. 
+
+Here we can talk about the effect of the EC input on the CA3 dynamics during learning. In standard framework the inputs to EC are drived only via DG!!!1 
+%Inputs from the dentate gyrus to CA3 are proposed to assist in the encoding of new patterns of activity (representing new memories) in CA3 through pattern separation1,111,112. Finally the direct connections from the ECx to CA3 have been proposed to provide the cues for retrieval of information from CA3, especially when incomplete information is provided. Different studies have attempted to find experimental evidence to support these theories by linking the activity and plasticity of synaptic circuits in CA3 to memory encoding (TABLE 1).
+
+
+
 
 In summary, even though the standard framework has been influential in explaining the neural mechanisms of episodic memory storage, the evidence against it is mounting, warranting an alternative to an attractor network in CA3. CRISP suggests that the feedforward connectivity between hippocampal sublayers act as a feedforward pattern association network that is more important than the recurrent CA3-CA3 association system. 
 
@@ -668,35 +700,25 @@ In our model, we compare the storage of random patterns to the storage of grid p
 Our model could help to study whether the spatial representation in CA1 and CA3 can be reconciled with episodic memory in the same neural network model. We found previously that a fairly generic solution to the transformation from grid cells to place cells could be learned in a feedforward model \cite{cheng2011structure}. We also found evidence for spatial coding in CA1 and CA3 in a model related to the current one \cite{neher2015memory}. Since our model includes the hippocampal circuit, it enables future investigation of spatial representations in the hippocampal subregions. 
 
 
-\subsection{Conclusion} 
-Compared to previous models, CRISP uses a radically different mechanism for storing episodic memories in the hippocampus. Neural sequences are intrinsic to CA3, and inputs are mapped onto these intrinsic sequences through synaptic plasticity in the feedforward projections of the hippocampus. Here, we computationally investigated, based on the CRISP theory, the role of the complete hippocampal loop in storing and retrieving episodic memories. Our work illustrates how essential it is to consider the whole hippocampal loop while investigating individual functional roles of the subregions. Since a model generating intrinsic sequences in CA3 performs best overall, we conclude that CRISP is a viable theory for the role of the hippocampus in episodic memory.
 
 
-\bibliographystyle{frontiersinSCNS_ENG_HUMS} % for Science, Engineering and Humanities and Social Sciences articles, for Humanities and Social Sciences articles please include page numbers in the in-text citations
-%\bibliographystyle{frontiersinHLTH&FPHY} % for Health, Physics and Mathematics articles
-\bibliography{test}
-
-\end{document}
-
-Dynamics and the temporal dimension:  
+\subsection{Dynamics and the temporal dimension}  
 
 One of the concerns is how the hippocampus associates the events that are seperated by more than a second, while with the continuous dynamics, that are present in the brain, any attractor (in CA3) finds the basin of attraction within 10-20 ms. This time scale of activity propagation in continious attractors depends crucially on the time constants governing synaptic conductances (Battaglia and Treves 1998; Treves 1993; Panzeri et al 2001). 
 %
 Various oscilatory rhythms (e.g. theta, gamma, ripples) are assumed to be essential for episodic memory and sequence learning in hippocampus.(Traub et al, Rev Neurosci 13:1-30, 2002).
 %
-We assume that there is an external mechanism that acting on the hippocampus and which is responsible for synchronising the activity through the CA3 dynamics and the entire network. There could be a clock like gamma oscillation, which has been observed in the hippocampus (6). Therefore, neuronal oscillations allow for temporal segmentation of neuronal spikes. 
+We assume that there is an external mechanism that acting on the hippocampus and which is responsible for synchronising the activity through the CA3 dynamics and the entire network. There could be a clock like gamma oscillation, which has been observed in the hippocampus \cite{jensen2007human}. Therefore, neuronal oscillations allow for temporal segmentation of neuronal spikes. 
 %
-Hiere, we assume that the storage and retrieval of the input patterns can happen in gamma time scale.
+Here, we assume that the storage and retrieval of the input patterns can happen in gamma time scale.
 %
-These gamma oscillations synchronizing spikes and creates pause between items in a message to prevent errors in decoding. 
+These gamma oscillations synchronizing spikes and creates pause between items in a message to prevent errors in decoding particularly in the CA3. 
 %
 The indication is thus that retrieval would be very rapid from the CA3 network, indeed, fast enough for it to be biologically plausible.
 %
 The dual oscillations are hypothesized to form a code for representing multiple items in an ordered way (Lisman and Idiart, 1995; Jensen and Lisman, 1996). 
 %
-In order to get something in order of the behavioural time scale which is stored in gamma cycle, we postulate that the inputs to the hippocampus are temporaly compressed due to the phase precession (O'Keefe and Recce, 1993) out of the hippocampus e. g., phase precession hase been observed in the EC (?). 
-%
-Phase precession may thus serve as a mechanism to transfer information from large-scale brain networks operating at behavioral timescales to the fast, local cortical processing required for effective computation and synaptic modification, thus integrating functional systems across multiple spatiotemporal scales.
+In order to get something in order of the behavioural time scale which is stored in gamma cycle, we postulate that the inputs to the hippocampus are temporaly compressed due to the phase precession mechanism (O'Keefe and Recce, 1993) out of the hippocampus e. g., phase precession hase been observed in the EC (?). 
 %
 Temporally compressing behavioral sequences that happen on the time scale of seconds down to the time scale of milliseconds (within a gamma cycle). This compression of behavioral time scale of seconds to the time scale of a theta or gamma cycle enables synaptic plasticity and a neural mechanism for representing temporal order of events required for episodic memory. So a rat's hippocampus compresses ongoing experience into repeating theta sequences. Figure 3. [3] [7] [16] [2] [9] [10] [11] [13][15] [14]
 %
@@ -705,6 +727,20 @@ This assumptions makes it possible to formulate a model of sequence memory with 
 This model is rather abstract and is not a biophysical model of the hippocampus. In principle we aimed to investigate how correlation introduce difficulties to the storage of pattern sequences in the hippocampus.
 However, it is out of the scope of this study to suggest which mechanisms is responsible for the storage and retrival of the input memories.   
 %
+
+
+%Our network models are minimal, but they were able to produce theta rhythms with sparse firing, as represented by population bursts, allowing us to suggest sufficient and necessary conditions for their generation. Although our models took into consideration network size, connectivity, and cellular characteristics in a clear experimental context, architecture was not considered. That is, connectivity used in the network models was random. This is clearly a simplification, especially considering the recent finding of motifs in pyramidal cells in the CA3 region of hippocampus (Guzman et al., 2016). However, it is a reasonable first approximation that allowed us to explore a wide expanse of connectivities.
+
+
+%Some of these neuronal sequences may depend on external cues (e.g., spatial fields; Wilson and McNaughton, 1994 ;  Foster and Wilson, 2006), while others presumably reflect the internal dynamics (e.g., time cells; Pastalkova et al., 2008). These two entities react differentially to external manipulations (Wang et al., 2016). Possibly, several cell-type-specific ensembles coexist and code for different aspects of experience (Wu and Foster, 2014; van de Ven et al., 2016 ;  Wang et al., 2016). 
+
+
+\subsection{Conclusion} 
+Compared to previous models, CRISP uses a radically different mechanism for storing episodic memories in the hippocampus. Neural sequences are intrinsic to CA3, and inputs are mapped onto these intrinsic sequences through synaptic plasticity in the feedforward projections of the hippocampus. Here, we computationally investigated, based on the CRISP theory, the role of the complete hippocampal loop in storing and retrieving episodic memories. Our work illustrates how essential it is to consider the whole hippocampal loop while investigating individual functional roles of the subregions. Since a model generating intrinsic sequences in CA3 performs best overall, we conclude that CRISP is a viable theory for the role of the hippocampus in episodic memory.
+
+
+
+
 2: Gevins A, Smith ME, McEvoy L, Yu D: High-resolution EEG mapping of
 cortical activation related to working memory: effects of task difficulty,
 type of processing and practice. Cereb Cortex 1997, 7:374-385.
@@ -722,74 +758,8 @@ associated with attention and memory. Trends Neurosci 2007, 30:317-324.
 
 
 
-
-\begin{figure}[!htb]
-\caption{\textbf{Robust and non-robust generation of sequential activity in models of CA3.} \textbf{A}:~Each column shows the recall performance in a different recurrent network model as labeled on top. Horizontal axes depict the position of the pattern in the sequence (time) and vertical axes show the correlation between each retrieved pattern and the stored one. Each row shows the network performance for recall cues with a particular level of noise $C(y_{1}, y'_{1})$, shown on the righthand side. In each subplot, each line corresponds to a particular sequence. The RCN is highly sensitive to noise, whereas the LCN seems to keep the same input information while retrieving the stored sequence. The PTR shows the best performance and retrieves the previously stored sequence from the noisy cue. The PTG, depending on the amount of correlation between the stored patterns, either completes the sequence to the correct one or confuses and fails the sequence completion. \textbf{B}:~Pattern completion plot. To include the whole range of noise-levels, the pattern completion plot for different network models is shown (see Methods and Materials). Each color in each panel corresponds to one noise-level. Data-points above the diagonal stand for good sequence completion, whereas data below the diagonal show that information in the input is lost. Data on the diagonal show that the network maintains the information in the input cue along the sequence. Overall, the PTR performs best, even with highly corrupted cues. The PCI value for the RCN, LCN, PTR and PTG models are $-0.5, 0.1, 0.56$ and $0.09$, respectively.} 
-\label{Fig_3}
-\end{figure}
-
-\begin{figure}[!htb]
-\caption{\textbf{Visualizing the effects of CA3 dynamics during retrieval.} Each subplot shows the correlation matrix between every retrieved ($\tilde{y}_{l,m}$) and every stored ($y_{l,m}$) pattern, where $l, m = 1, ..., 16$. The networks were initialised with a noisy recall cue with cue quality $C(y_{l,1}, y'_{l,1}) = 0.5$. The gray values show the correlation between the stored and retrieved patterns where white corresponds to a correlation of one and black to zero, respectively. To facilitate the comparison, we overlay a grid of red lines to delineate the boundaries between the sequences. For RCN, all correlation values, except for initial ones on the main diagonal, are close to zero. This means that the network is not robust to input noise but can generate a large number of uncorrelated patterns. For LCN, the high correlation values on the main diagonal show that the network is moderately robust, but on the other hand, the retrieved sequences have a high level of overlap with other sequences (high values in off-diagonal cells). The PTR combines the useful properties of the previous two models, robustness and uncorrelated stored patterns. Only the main diagonal values are close to one and all the other correlations are close to zero, meaning that this network is highly robust to input noise. The PTG, in which patterns are spatially correlated, depending on the level of overlap within and between the stored sequences deteriorates the recall performance.}
-\label{Fig_4}
-\end{figure}
-
-\begin{figure}[!htb]
-\caption{\textbf{Example of recall performance for random input patterns.} Example for sequential retrieval performance of the complete model EC-CA3-CA1-EC with random patterns in EC. Each column shows the results for a different CA3 model, when recall cue with cue quality $C_{EC}(u_1, u'_1) = 0.5$ is provided to EC. Retrieval quality for CA3 (top row), CA1 (middle row), and EC (button row) are shown separately. The horizontal axes represents the position of the pattern in the sequence or time-step. Each colored line shows the correlation between the retrieved and the corresponding stored patterns in a sequence.} 
-\label{Fig_5}
-\end{figure}
-
-\begin{figure}[!htb]
-\caption{\textbf{Summary of pattern and sequence completion for random patterns.} Retrieval quality in different projections for the entire range of noise levels. Each column shows the result for a different CA3 model. Subplots illustrate the pattern completion in the EC-CA3, CA3-CA3, CA3-CA1 and CA1-EC projections. In the last row, the pattern completion is shown by comparing the first and last retrieval correlations of the sequences in EC. Different colors in each panel correspond to different noise-levels.}
-\label{Fig_6}
-\end{figure}
-
-\begin{figure}[!htb]
-\caption{\textbf{Example of recall performance for grid patterns.} Same as Fig. \ref{Fig_5}, but storing grid patterns in the network.}
-\label{Fig_7}
-\end{figure}
-
-\begin{figure}[!htb]
-\caption{\textbf{Summary of pattern and sequence completion for grid patterns.} Same as Fig. \ref{Fig_6}, but storing grid patterns in the network.}
-\label{Fig_8}
-\end{figure}
-
-\begin{figure}[!htb]
-\caption{\textbf{Comparison of retrieval performance at different processing stages.} The simulation is performed with the perfect retrieval cue for random (left) and grid (right) input. Each data point, except for the retrieval cue, shows the average performance in the indicated step.}
-\label{Fig_9}
-\end{figure}
+\bibliography{test}
 
 
-
-\begin{figure}[!htb]
-\caption{\textbf{Dimensionality of the pattern manifold in different layers.} PCA of the patterns stored in EC, CA1 and CA3 for different network models. The plots show the number of components that are required to account for a total of $85 \%$ of the variance, when stored patterns are random (left column) or derived from grid cells (right column). The top row shows the fraction of the variance explained by individual components, the bottom row shows the cumulative fraction. The manifold of patterns in EC with grid input has much lower dimensionality than random patterns. Since the grid patterns are generated from moving in a 2-d space, the true dimensionality is 2, but the manifold is highly non-linear and PCA cannot extract this information. A similar effect can be seen in CA1 and CA3 with IDN, since these areas are directly driven by EC. CA3 patterns in a LCN, are low dimensional since network activity is constrained by the attractor dynamics to a 2-d manifold.}
-\label{Fig_10}
-\end{figure}
-
-
-\begin{figure}[!htb]
-\caption{\textbf{How close are retrieved CA1 patterns to the correct one?} Histograms of correlations between retrieved patterns and corresponding stored patterns (cyan) and between retrieved patterns and all other stored patterns (red). Retrieval is initiated with the perfect recall cues. Right and left columns show the results when random or grid patterns are stored, respectively. The number inside each panel shows the confusion rate. That is how often the correlation between the retrieved and the original pattern is smaller than the correlation between retrieved pattern and at least one of the other stored patterns in the network.} 
-\label{Fig_11}
-\end{figure}
-
-\begin{figure}[!htb]
-%\centering\includegraphics[width=1.\linewidth]{Fig_1.eps}
-\caption{\textbf{Capacity analysis for random and grid patterns.} 
-\textbf{A}:~Recall performance with random input as quantified by the pattern completion index (PCI) in different projections, for the four different CA3 networks as a function of the number of stored sequences. The grey shading of the marker indicates the range of the data points between zero and one that is used to calculate the PCI (e.g., see Fig.~\ref{Fig_8}). White indicates a complete range, black a single data point near zero.
-The range is important since a small range implies that the PCI is unreliable.
-We define the network capacity in our model as the maximum number of sequences than can be stored in the network such that PCI $> 0$ in the comparison of the last retrieved pattern to the recall cue (last row). \textbf{B}:~Network capacity when grid input is presented to EC.}.   
-\label{Fig_12}
-\end{figure}
-
-
-\begin{figure}[!htb]
-\centering\includegraphics[width=1.\linewidth]{Fig_1.eps}
-\caption{\textbf{Effect of noise in neural dynamics on sequence completion.}
-Same plotting convention as in Fig.~\ref{Fig_12}.
- }
-\label{Fig_13}
-\end{figure}
-
-
-
-
+\end{document}
 
