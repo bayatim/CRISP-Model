@@ -624,54 +624,44 @@ As we expected the DDN(1) is not robust against noise at all.
 \subsection{Dimensionality and Pairwise Correlation Analysis}
 
 Comparing the network performances with grid input statistics to EC and
-different models in CA3 indicated some differences in the degree of pattern completion that require more explanation \ref{Fig_6}. Even though the overall memory performance on correlated grid input
-was best using the DDN(<.8), it is intriguing that not all processing steps perform better. In particular, the first step of hetero-association in EC-CA3 using the DDN(<0.8) performs worse than in the DDN(>0.8).
-However, we have shown that the performance of the EC-CA3 projections are in the case of grid inputs slightly different and in turn it can affect the CA3 performance, motivating the necessity of further analysis. 
+different models in CA3 indicated that correlation between the stored patterns is overall harmful for the feedforward hetero-association of the activity patterns (Figs. \% \ref{Fig_3}, \ref{Fig_4} and \ref{Fig_6}. 
+%
+However, we have shown that the performance of the EC-CA3 projections are slightly different \ref{Fig_6}, and in turn it can affect the CA3 performance, motivating the necessity of further analysis. 
+%
+Even though the overall memory performance on correlated grid input
+was best using the DDN($\alpha \lesssim .8$) model in CA3, it is intriguing that not all processing steps perform better. In particular, the first step of hetero-association in EC-CA3, when DDN($\alpha \lesssim .8$), performs worse than that of DDN($\alpha \gtrsim .8$).
 
 %Further calculations (data not schown) reveal that even if the recall cue quality is close to zero ( $\lesssim \: 0.15$) the DDN network can retrieve one of the stored sequences, but not necessarily the correct one. However, in the case of retrieving the correct sequence the retrieved sequence approaches the stored sequence very slowly. For example, in Fig.~\ref{Fig_3}A when the recall cue quality is $0.05$, one of the retrieved sequences matches the stored one in the fourth time step, whereas with much higher cue qualities it matches in the second time step.
-To better understand why this occurs and how the network recovers from this apparent loss of information in later processing steps, we investigated the manifolds on which the stored patterns in EC, CA3, and CA1 lie. The dimensionality of the pattern space in each layer equals the number of cells $N$. Within this space, the manifold spanned by the $P$ stored patterns has at most a dimensionality of $P$ (=256). However, due to the correlation between the stored patterns, the effective dimensionality of the manifold can be much smaller. To determine this dimensionality, we apply principal component analysis (PCA) to the stored patterns in each layer. PCA finds the dimensions (or components) that explain most of the variance of the given data \cite[chapter 4]{Hastie2009}.
+To better understand why this occurs and how the network recovers from this (overall) apparent loss of information in later processing steps, we investigated the manifolds on which the stored patterns in EC, CA3, and CA1 lie. The dimensionality of the pattern space in each layer equals the number of cells $N$. Within this space, the manifold spanned by the $P$ stored patterns has at most a dimensionality of $P$ (=256). However, due to the correlation between the stored patterns, the effective dimensionality of the manifold can be much smaller. To determine this dimensionality, we apply principal component analysis (PCA) to the stored patterns in each layer. PCA finds the dimensions (or components) that explain most of the variance of the given data \cite[chapter 4]{Hastie2009}.
 %
 PCA is a way of identifying patterns in data, and expressing the data in such a way as to highlight their similarities and differences.
 %
 PCA is a method of dimensionality reduction without (much) sacrificing the accuracy. Dimensions are number of independent variables. PCA aims to summarize data with many independent variables to a smaller set of derived variables. In such a way, that first component has maximum variance, followed by second, followed by third and so on. Furtheremore, the covariance of any of the component with any other component is zero.
 In a way PCA, redistributes total variance in such a way, that first K components explains as much as possible the total variance. Total variance in case of $P$ independent variables is sum of the variance of the individual variables.
 
-
 Now we address the differences in the level of pattern completion in the network. 
-
-(\RN{3}): Why does pattern completion in the EC-CA3 projection work better when the $\alpha$ is larger? (see Fig.~\ref{Fig_6}). 
 %
-Fig.~\ref{Fig_9} illustrates the PCA analysis on the stored patterns in different areas. Analysis on the grid patterns in the EC indicates that only 20 dimensions explain about $85 \%$ of the variance. Therefore EC patterns lie on a amall subarea and (very skweed). For DDN(0), the patterns are expanded in about 200 dimensions and are almost orthogonal.
-Increasing the Alpha up to about .8, the dimentionality decreases very slowly, but beyond that suddenly patterns lie in a very smaller subareas. 
-
-The PCA analysis on the stored patterns in CA3 shows that stored patterns in the DDN with larger Alpha span a slightly lower dimensional space than patterns in the DDN with smaller Alpha (Fig.~\ref{Fig_9}). 
+(\RN{1}): Why does pattern completion in the EC-CA3 projection work better when the $\alpha$ is larger? (see Fig.~\ref{Fig_6}). 
+%
+Fig.~\ref{Fig_9} illustrates the PCA analysis on the stored patterns in different areas. Analysis on the grid patterns in the EC indicates that only 40 dimensions explain about $85 \%$ of the variance. Therefore EC patterns lie on a amall subarea and (very skweed). For DDN(0), the patterns are expanded in about 175 dimensions and are almost orthogonal.
+Increasing the $\alpha$ up to about .8, the dimensionality decreases very slowly, but beyond that the analysis shows a very sharp transition ($\alpha = .9$). Therefore, patterns lie in a very smaller subareas. 
+%
+The stored patterns in the DDN with $\alpha \gtrsim .9$ span a significantly lower dimensional space than patterns in the DDN with  $\alpha \lesssim .9$ (Fig.~\ref{Fig_9}). 
 %
 Therefore, the retrieved patterns lie in a lower dimensional space, which keeps the retrieval error small.
-
+%
 (\RN{2}): 
-However, with LCN, the EC-CA3 projection occasionally performs better or worst than the other models, since the vertical scatter for the LCN network is slightly larger. The PCA analysis on the patterns stored in CA3 shows that stored patterns in the DDN(==1) models are expanded in a higher dimensional space ($\sim$ 200) compared to patterns stored in LCN ($csim$ 20) (Fig.~\ref{Fig_9}). Therefore, in the LCN, the retrieved patterns lie in a lower dimensional space and therefore are closer to the stored ones. Consequently, the reconstruction error is lower. At the same time, the higher overlap between the patterns in CA3 hurts pattern completion in the EC-CA3 projection. 
+With LCN, the EC-CA3 projection occasionally performs better or worst than the other models (see \ref{Fig_3}A, the first pattern retrieval quality). The PCA analysis on the patterns stored in CA3 shows that stored patterns in the LCN  are expanded in a low dimensional space ($csim$ 20). Therefore, the retrieved patterns forced to be closer to the stored ones. Consequently, the reconstruction error is lower. At the same time, the higher overlap between the patterns in CA3 hurts pattern completion in the EC-CA3 projection. 
 
-
-
-In brief, the argument is based on the notion that the dimensionality in EC is relatively low, that is, only 20 dimensions explain about $85 \%$ of the variance, and in CA3 it depends on the parameter $\alpha$. In order not to lose too much information in EC-CA3 projections, but rather perform pattern completion, it turns out that the dimensionality in the CA3 network should be as much as possible close to that dimensionality in EC. For example, for DDN when Alpha is close to one, the EC-CA3 projections perform better and can then initiate the CA3 dynamics with the better retrieval cue. In contrast, CA3 needs uncorrelated patterns during training to retrieve the full sequences.  Therefore, we need to trade off between these two requirements. This is expressed by the results that give the specific range for Alpha that can optimise the network capacity. alpha around .8. 
+In brief, the argument is based on the notion that the dimensionality in EC is relatively low, that is, only 40 dimensions explain about $85 \%$ of the variance, and in CA3 it depends on the parameter $\alpha$ in DDN model. In order not to lose too much information in EC-CA3 projections, but rather perform pattern completion, it turns out that the dimensionality in the CA3 network should be as much as possible close to that dimensionality in EC. For example, for DDN when $\alpha$ is close to one, the EC-CA3 projections perform better and can then initiate the CA3 dynamics with the better retrieval cue. In contrast, CA3 needs uncorrelated patterns during training to retrieve the full sequences.  Therefore, we need to trade off between these two requirements. This is expressed by the results that give the specific range for $\alpha$ that can optimise the network capacity. 
 %
 
 The compression to a low dimensional space has negative consequences for decoding CA3 patterns downstream in the CA3-CA1 projection. For instance, the LCN completes the sequences moderately, but the information cannot be decoded from CA3 to CA1 due to the highly correlated patterns in CA3. In the other CA3 models, the CA3-CA1 projection can perform pattern completion if the sequences are completed moderately in CA3 (see Fig.~\ref{Fig_6}). 
-
-
-
-However, for grid inputs in the case of DDN(1), the correlations are low and they overlap with each other, meaning that correlated patterns deteriorate robustness of CA3 as well as the feed-forward hetero-association.
-
-For the DDN(<.8), the correlations between the retrieved patterns and their original version are high and distinct from the other distribution.     
-
-
-%A different input system is needed to trigger retrieval
-A hetero-associative memory network needs uncorrelated patterns in the input layer, so that, it performs proper pattern completion when it retrieves a stored pattern \cite{willshaw1969non, neher2015memory}.
-Why correlation is over all bad?
-
-%Finally, to highlight that the network performs best if when the CA3 dynamics is robust and at the same time generates non-correlated patterns, we compared the correlations between retrieved patterns and their corresponding original versions as well as between the retrieved patterns and all other stored patterns in CA1. If the pattern is remembered correctly, the correlations between the retrieved patterns and their original version should be distinct from the correlations between the retrieved patterns and all other stored ones. Fig.~\ref{Fig_10} illustrates the pairwise correlation analysis in CA1. The retrieval is initiated with the perfect recall cue in EC. For DDN(1), the two distributions are rather wide with low mean and largely overlap with each other. The overlap is further quantified by the confusion rate, i.e., how often the correlation between the retrieved and the original pattern is smaller than the correlation between retrieved pattern and at least one of the other stored patterns in the network.
-
-%Therefore, in the LCN, the retrieved patterns lie in a lower dimensional space and therefore are closer to the stored ones. Consequently, the reconstruction error is lower. At the same time, the higher overlap between the patterns in CA3 hurts pattern completion in the EC-CA3 projection. 
+%
+However, for grid inputs in the case of DDN(1), the correlations are high and they overlap with each other, meaning that correlated patterns deteriorate robustness of CA3 under some circumstances the feedforward hetero-association.
+In summary, the network performs best if when the CA3 dynamics is robust and at the same time generates non-correlated patterns     
+     
+It has been noted that a hetero-associative memory network needs uncorrelated patterns in the input layer, so that, it performs proper pattern completion when it retrieves a stored pattern \cite{willshaw1969non, neher2015memory}. It is beyond the scope of this study to explain exactly why correlation between the stored patterns is not good for pattern completion. 
 
 
 \section{Discussion}
@@ -695,7 +685,7 @@ Intrinsically generated sequences have been observed in a number of different st
 
 
 \subsection{Comparison of CRISP to the Standard Framework}
-
+Based on the reviewers suggustion, I moved most of the text in this section to the introduction.
 %Many researchers have proposed that recurrent synapses amongst CA3 pyramidal cells endow the CA3 network with autoassociative and heteroassociative properties (Lisman, 1999;
 
 %The findings summarized in the preceding paragraphs form the basis of the view that the CA3 region is not an  autoassociative network, as previously proposed (autoassociation would symmetrically link Jerry and dropped  and candy). Rather, according to second generation models (Blum and Abbott, 1996; Jensen and Lisman,1996a; Levy, 1996; Tsodyks et al., 1996; Wallenstein and Hasselmo, 1997), CA3 is a heteroassociative network that links different memories that occurred at different times (heteroassociation asymmetrically links “Jerry dropped candy” to “monkey reached through cage andgrabbed it”). The next section will develop the idea thatthe reciprocally connected dentate and CA3 networks provide a solution to the special problems that arise when attempting to accurately recall sequences.
@@ -755,7 +745,7 @@ The dual oscillations are hypothesized to form a code for representing multiple 
 %
 In order to get something in order of the behavioural time scale which is stored in gamma cycle, we postulate that the inputs to the hippocampus are temporally compressed due to the phase precession mechanism (O'Keefe and Recce, 1993) out of the hippocampus e. g., phase precession has been observed in the EC (?). 
 %
-Temporally compressing behavioral sequences that happen on the time scale of seconds down to the time scale of milliseconds (within a gamma cycle). This compression of the behavioural time scale of seconds to the time scale of a theta or gamma cycle enables synaptic plasticity and a neural mechanism for representing the temporal order of events required for episodic memory. So a rat's hippocampus compresses ongoing experience into repeating theta sequences. Figure 3. [3] [7] [16] [2] [9] [10] [11] [13][15] [14]
+Temporally compressing behavioral sequences that happen on the time scale of seconds down to the time scale of milliseconds (within a gamma cycle). This compression of the behavioural time scale of seconds to the time scale of a theta or gamma cycle enables synaptic plasticity and a neural mechanism for representing the temporal order of events required for episodic memory. So a rat's hippocampus compresses ongoing experience into repeating theta sequences. [3] [7] [16] [2] [9] [10] [11] [13][15] [14]
 %
 These assumptions makes it possible to formulate a model of sequence memory with a time clock running to keep the time steps apart, which is what effectively our simulations implement. 
 %
@@ -775,6 +765,11 @@ Compared to previous models, CRISP uses a radically different mechanism for stor
 
 
 
+\bibliography{test}
+
+
+\end{document}
+
 
 2: Gevins A, Smith ME, McEvoy L, Yu D: High-resolution EEG mapping of
 cortical activation related to working memory: effects of task difficulty,
@@ -790,11 +785,3 @@ J Neurosci 1997, 17:6470-6477.
 
 6: Jensen O, Kaiser J, Lachaux JP: Human gamma-frequency oscillations
 associated with attention and memory. Trends Neurosci 2007, 30:317-324.
-
-
-
-\bibliography{test}
-
-
-\end{document}
-
