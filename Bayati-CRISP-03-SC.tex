@@ -1,0 +1,778 @@
+%Last-update: 1.9-19:41
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is just an example/guide for you to refer to when submitting manuscripts to Frontiers, it is not mandatory to use Frontiers .cls files nor frontiers.tex  %
+% This will only generate the Manuscript, the final article will be typeset by Frontiers after acceptance.   
+%                                              %
+%                                                                                                                                                         
+% When submitting your files, remember to upload this *tex file, the pdf generated with it, the *bib file (if bibliography is not within the *tex) and all the figures.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Version 3.3 Generated 2016/11/10 %%%
+%%% You will need to have the following packages installed: datetime, fmtcount, etoolbox, fcprefix, which are normally inlcuded in WinEdt. %%%
+%%% In http://www.ctan.org/ you can find the packages and how to install them, if necessary. %%%
+%%%  NB logo1.jpg is required in the path in order to correctly compile front page header %%%
+
+\documentclass[utf8]{frontiersSCNS} % for Science, Engineering and Humanities and Social Sciences articles
+%\documentclass[utf8]{frontiersHLTH} % for Health articles
+%\documentclass[utf8]{frontiersFPHY} % for Physics and Applied Mathematics and Statistics articles
+
+
+\bibliographystyle{frontiersinSCNS_ENG_HUMS} % for Science, Engineering and Humanities and Social Sciences articles, for Humanities and Social Sciences articles please include page numbers in the in-text citations
+%\bibliographystyle{frontiersinHLTH&FPHY} % for Health, Physics and Mathematics articles
+
+
+%\setcitestyle{square} % for Physics and Applied Mathematics and Statistics articles
+\usepackage{url,hyperref,lineno,microtype,subcaption}
+\usepackage[onehalfspacing]{setspace}
+
+
+
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+
+% Leave a blank line between paragraphs instead of using \\
+
+
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\firstAuthorLast{} %use et al only if is more than 1 author
+\def\Authors{Mehdi Bayati\,$^{1,2}$, Torsten Neher\,$^{3}$, Jan Melchior\,$^{1}$, Laurenz Wiskott\,$^{1}$ and Sen Cheng\,$^{1,2,*}$}
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+\def\Address{$^{1}$Institut f\"ur Neuroinformatik, Ruhr-Universit\"at Bochum, D-44801 Bochum, Germany \\
+$^{2}$Mercator Research Group 'Structure of Memory', Ruhr-University Bochum, Bochum, Germany \\
+$^{3}$Mental Health Research and Treatment Center, Department of Clinical Child and Adolescent Psychology, Faculty of Psychology, Ruhr University Bochum, Bochum, Germany}
+% The Corresponding Author should be marked with an asterisk
+% Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
+\def\corrAuthor{Corresponding Author}
+
+\def\corrEmail{sen.cheng@rub.de}
+
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+
+\title{Storage Fidelity for Sequence Memory in the Hippocampal Circuit} 
+
+\author[\firstAuthorLast ]{\Authors} %This field will be automatically populated
+\address{} %This field will be automatically populated
+\correspondance{} %This field will be automatically populated
+
+\extraAuth{}% If there are more than 1 corresponding author, comment this line and uncomment the next one.
+%\extraAuth{corresponding Author2 \\ Laboratory X2, Institute X2, Department X2, Organization X2, Street X2, City X2 , State XX2 (only USA, Canada and Australia), Zip Code2, X2 Country X2, email2@uni2.edu}
+
+
+\maketitle
+Running title: Sequence Memory Storage in the Hippocampal Circuit\\
+Number of text pages: 23\\
+Number of figures: 9\\
+Corresponding author: Sen Cheng, Institut f\"ur Neuroinformatik, Ruhr-Universit\"at Bochum, D-44801 Bochum, Germany\\
+Grant sponsor: DFG; Grant number: SFB874-Project B2 (S.C.)\\
+Grant sponsor: DFG; Grant number: SFB874-Project B3 (L.W.)\\
+Grant sponsor: Stiftung Mercator (S.C.)\\
+Keywords: Hippocampus, Neural sequences, Episodic memory, Neural Networks, Feedforward Networks\\
+
+\newpage
+
+\linenumbers
+
+\begin{abstract}
+
+%%% Leave the Abstract empty if your article does not require one, please see the Summary Table for full details.
+\section{}
+Despite extensive research, the role of the hippocampus in episodic memory storage and recall is still unclear. 
+%
+We have recently proposed that episodic memories are best represented by temporal sequences of neural activation patterns and that the hippocampal circuit is optimized to store these sequences.
+%
+Here, we study the possible mechanisms by which memory sequences can be stored and recalled from the cortico-hippocampal circuit, consisting of the EC-CA3-CA1-EC loop.
+%
+The network stores and retrieves sequences of patterns in entorhinal cortex (EC), which are driven by sensory inputs.
+%
+Storing sequences presents entirely different challenges from storing static patterns.    
+%
+During memory encoding, CA3 sequences are driven by intrinsic dynamics, the EC inputs, or a combination of both. 
+%
+These CA3 sequences are hetero-associated with EC sequences.
+%
+During memory retrieval, CA3 sequences are reactivated based on partial, noisy cues provided to EC as inputs. 
+%
+The retrieved sequences in CA3 then drive activity in the downstream CA1 layer and output layer in EC. 
+%
+We find that overall memory performance depends on both the robust retrieval of sequences from CA3  and the network’s ability to perform pattern completion through the feedforward connectivity in the hippocampal circuit.
+Both of these factors, in turn, depend on the relative drive on CA3 activity.
+%
+In conclusion, the cortico-hippocampal circuit can robustly store and retrieve sequences of patterns, but memory performance critically depends on the network architecture and dynamics in CA3. 
+%
+% \keyFont{ \section{Keywords:} keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+\end{abstract}
+
+
+\section{Introduction}
+Memory is not a unitary system, but is rather a collection of several different systems that, in some cases involves distinct regions of the brain. \citet{tulving1972episodic} suggested that episodic memory is a separate memory system that stores memories of personally experienced events. The hippocampus has been implicated in the acquisition and consolidation of new episodic memories in humans. Patients with damage to the hippocampus and nearby brain areas suffer from severe anterograde amnesia \citep{scoville1957loss, milner1968further}. The structure of the hippocampus is preserved across all mammals \citep{allen2013evolution} and hippocampal lesions in animal models impair learning and memory, too. For instance, hippocampal rats are impaired at associating time-delayed stimuli \citep{gluck2001gateway} and the object-cued retrieval of paired associate memory, even in the absence of a delay \citep{yoon2012hippocampus}. Most prominently, rats have severe deficits in spatial learning after hippocampal lesions \citep{morris1982place}.
+
+It remains unclear however how the hippocampal circuit stores and retrieves memories. Based on its anatomical and physiological properties the hippocampus can be divided into the DG, which includes a large number of small granule cells with low activity \citep{leutgeb2007pattern}, and the CA3, CA2 and CA1 regions consisting of a homogeneous set of pyramidal cells. The connections between the subregions are established in a feedforward manner \citep{amaral1990chapter}. CA3 is famous for its recurrent collaterals \citep{ishizuka1990organization, li1994hippocampal}. \citet{guzman2016synaptic} found sparse (around $<5\%$), but non-random, connectivity and highly enriched disynaptic motifs in the connectivity of CA3 neurons. 
+%
+The CA3 region has been suggested to function as an auto-associative memory, performing pattern completion when a partial and noisy cue is provided \citep{marr1991simple, mcnaughton1987hippocampal, treves1994computational, o1994hippocampal, rolls2007attractor, guzman2016synaptic}. The attractors in the recurrent CA3 network are thought to be established rapidly when cortical inputs drive activity and plasticity in CA3. Over the last decades, this model has become known as the standard framework \citep{nadel1997memory}. %%@@ cite Nadel and Moscovitch, 1997
+
+
+Despite its name, the experimental support for the standard framework remains mixed. On the one hand, it is bolstered by observations that rats with lesioned CA3 are impaired in remembering a location when parts of the spatial cues are removed \citep{gold2005role} and that spatial pattern completion apparently requires plasticity in the recurrent CA3 synapses \citep{nakazawa2002requirement}. On the other hand, the standard framework cannot readily account for observations of numerous types of sequential neural activity in the hippocampal formation, because CA3 dynamics is designed to reach stable attractor states \citep{cheng2013crisp}. 
+For instance, multiple studies implicate the hippocampus in temporal sequence learning. Rats with hippocampal lesions have difficulty remembering sequences of spatial locations \citep{chiba1994memory} and hippocampal lesions impair a rat's ability to learn which odor came first in a sequence of odors \citep{fortin2002critical}. Agster et al. showed that hippocampal rats had deficits disambiguating the overlapping odor sequences \citep{agster2002hippocampus}. After rats run through the place fields of hippocampal CA1 place cells causing the place cells to fire in a fixed order, the cells become active in the same sequences during sleep \citep{lee2002memory}. A number of other studies have also found such replay of temporal sequences in the hippocampus during sleep \citep{louie2001temporally, kudrimoti1999reactivation, qin1997memory, skaggs1996replay}. Novel sequences that were never experienced by the animal are played out independently of the preceding experience \citep{gupta2010hippocampal, dragoi2011preplay}. These sequences are potentially used to predict immediate future behavior and are generated even in cases, in which the specific combination of start and goal locations is novel \citep{pfeiffer2013hippocampal}. 
+
+The ubiquity of sequential activity in the hippocampus has recently led us to propose that episodic memory is better thought of as sequences of activity patterns \citep{cheng2016dissociating} and that the hippocampal circuitry has been optimized for the storage of pattern sequences \citep{cheng2013crisp}. 
+%%
+In the CRISP (Content Representation, Intrinsic Sequences, and Pattern completion) theory, neural sequences are intrinsically generated in CA3. To store episodic memories, sequences of external input patterns are mapped onto these intrinsic CA3 sequences through synaptic plasticity in the feedforward projections \citep[e.g.][]{willshaw1969non}.
+While other computational models for generating activity sequences in recurrent networks have been developped and studied \citep{sussillo2009generating, lazar2009sorn, rajan2016recurrent, jaeger2001echo, kropff2007complexity, bayati2015self}, they cannot be readily mapped onto the anatomy and physiology of the hippocampal circuitry.
+
+
+Here we develop a computational model of the cortico-hippocampal circuit (consisting of the EC-CA3-CA1-EC loop) to study the implications of the CRISP theory for sequence memory. The current neural network architecture is largely based on our previous work \citep{neher2015memory}, which in turn was derived from Rolls (1995) \citep{fontanari1995model}, with the important exception of the CA3 recurrent dynamics. We focused on two aspects that are key in the CRISP theory.
+%
+First, what is the computational advantage, if any, of generating sequences intrinsically in CA3? We previously argued that limited plasticity in CA3 during memory encoding is a better match to experimental findings \citep{cheng2013crisp,azizi2013computational}, but this hypothesis has not been studied computationally before. Here, we test recurrent CA3 networks that are driven to a different degree by intrinsic dynamics vs. external inputs for their ability to robustly generate sequences of activity patterns. 
+%
+Second, how do temporal correlations due to CA3 dynamics affect pattern completion in the complete circuit?  Unlike the CA3 recurrent network, the feedforward connectivity between the hippocampal subregions \citep{amaral1990chapter} have received much less attention until recently \citep{neher2015memory, pyka2014pattern}. We previously found that spatial correlations in the EC inputs changes whether recurrent or a feedforward network architecture can perform better pattern completion \citep{neher2015memory}. 
+%
+[@@] Moreover, it has been shown that synaptic modification on the forward synaptic connections, rather than in the recurrent collaterals, significantly increases the storage capacity \citep{willshaw1990assessment, willshaw1969non}. However, the stored patterns in these models are uncorrelated.   
+%
+
+We find that overall memory performance in our model depends on both the robust retrieval of sequences from CA3 and the network’s ability to perform pattern completion through the feedforward connectivity in the hippocampal circuit and that both of these factors, in turn, depend on the relative drive on CA3 activity.
+%
+In conclusion, the cortico-hippocampal circuit can robustly store and retrieve sequences of patterns, but memory performance critically depends on the network architecture and dynamics in CA3. 
+%
+
+  
+
+
+
+% authors may use "Analysis" 
+\section{Materials and Methods}
+
+
+
+
+\subsection{Model Architecture and Activation Function}
+
+
+The model includes the entorhinal cortex (EC), CA3 and CA1. 
+%
+Recent findings indicate that reciprocal interactions between deep and superficial layers of the EC are quite substantial \citep{canto2008does, van2003morphological}. Furthermore, main cortical inputs target both deep and superficial layers. Thus, the deep and superficial layers of the EC might act as a single functional entity, rather than as separate structures \citep{kloosterman2000functional}.
+%
+On this account, the superficial and deep layers of the EC are clamped to the same layer. Please notice that this does not mean that we close the loop, namely the activities in the EC outputs do not propagate, via the EC input, through the network.
+
+The number of neurons $N$ in each region and connections a neuron in a downstream region forms with neurons in the upstream region are summarized in Fig.~\ref{Fig_1}. The parameter $N$ is chosen based on anatomical data from the rat hippocampal formation \citep{amaral1990chapter, cutsuridis2010hippocampal} and is scaled down by the factor of $100$ in order to reduce the computational cost \citep[see][for details]{neher2015memory}. The sparse connectivity in CA3 ($< \%$5) \citep{guzman2016synaptic} is scaled up by a factor $\sqrt{100}$ to ensure a sufficient number of connections exist to store the sparse patterns in the network. Hence, the connectivity is set to $32\%$ (Fig.\:\ref{Fig_1}). 
+%
+We confirmed that our qualitative results do not depend sensitively on the connectivity parameter by running our simulations for more diluted and denser connectivities.
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_1.eps}
+\caption{\textbf{Schematic of the model.} \textbf A: The three subregions EC, CA3 and CA1 are included in the model. The parameter $a$ denotes the proportion of cells that are active \textbf{[@@]on average} at any given time. Arrows indicate connectivity between regions. Solid black lines indicate fixed random connections, solid green lines represent plastic connections that are adjusted during learning, and dashed lines show connections that could be either fixed (using hand-wired models for CA3) or plastic (using EC-input and intrinsic input to train CA3 weights). The number next to the arrows show the number of connections that one cell in the downstream region has with cells in the upstream region.}
+\label{Fig_1}
+\end{figure}
+
+Neurons in our model are binary, i.e., they are either active or silent reflected by a value of $1$ or $0$, respectively \citep{fontanari1995model}.
+%
+The activation $h^i$ of the receiving cell $i$ is calculated as the weighted sum of its inputs $u^j$
+\begin{align}
+	\label{activation}
+	h^i = \sum_{j=1}^{N_\mathrm{in}} w^{ij}u^j,
+\end{align}  
+where $w^{ij}$ is the strength of the connection from cell $j$ to cell $i$ and is set to $0$ when a connection does not exist. Inhibitory cells are not modeled explicitly, but rather through their effect on a population level \citep{renno2010mechanism, roudi2008representing, moustafa2009neurocomputational, appleby2011role, monaco2011modular}. A $k$-Winner-Take-All (kWTA) mechanism is applied to determine which cells become active. The $k$ cells with the highest activation are set to $1$ and the others are inhibited and thus set to $0$, i.e.,
+\begin{eqnarray}
+\label{eq:kWTA}
+	\kappa &:& \mathbb{R}_+^N \times \mathbb{N} \to \{0,1\}^N \\
+	\kappa^i (h;k) &=& \left \{ \begin{array}{ll}
+			1 &\text{ if $h^i$ is among the $k$ highest } \{ h^j:1\le j\le N \}. \\
+			0 &\text{ otherwise}.\\
+	\end{array} \right.
+	\label{eq:binary}
+\end{eqnarray}
+The number k is chosen uniformly from the interval $ [aN - \delta , Na + \delta ]$. The parameter $a$ is the sparsity of the activity in the corresponding region and [@@] $\delta = .15 aN$. This ensures that a different number of k cells is recruited for every pattern (or time step) (Fig.~\ref{Fig_1}).
+
+
+\subsection{Models of CA3}
+\label{ca3:models}
+
+We explore three models for CA3, in which the synaptic weights are either hand-wired and fixed (first two models) or plastic (third model). 
+%
+Another important aspect is whether the CA3 dynamics generates sequences intrinsically during storage (all models) or CA3 activity patterns is driven partly by EC inputs, as well (third model). 
+%
+In all networks, non-existing connections are modelled as connections with zero weight.
+%
+\begin{enumerate}
+\item \textit{Dual-driven network (DDN):} Each CA3 node is connected randomly to $32\%$ of the other nodes. The weights for the connections are sampled from a uniform distribution between zero and one.
+%
+CA3 activity patterns are driven jointly by EC inputs and CA3 collateral inputs \textit{during the learning phase}.
+%
+We use the parameter ($0 \leq \alpha \leq 1$) to control the contribution of these inputs to the activation of a CA3 cell. 
+%
+Therefore, the activation $h^i$ of the receiving cell $i$ depends on the activity of the CA3 network in the previous time step and the concurrent activity in EC.
+%
+\begin{align}
+\label{activationDDN}
+h^{i}_{t} = (1 - \alpha) \sum_{j = 1}^{N^{CA3}_\mathrm{in}} {{w^{ij} y^{j}_{t-1}}} + \alpha \sum_{j = 1}^{N^{EC}_\mathrm{in}} {{w^{ij} u^{j}_{t}}} 
+\end{align}
+%
+When $\alpha = 0$ the network activity is driven intrinsically. On the other hand, when $\alpha = 1$, the network activity is driven entirely by EC inputs. Intermediate values of $\alpha$ integrate contribution of both inputs.
+%
+The CA3 recurrent network learns the sequences through successive hetero-associations, i.e.,  each network state is associated with the subsequent state of the CA3 network (see subsection~\ref{learning}).
+%
+Note that here we study sequence memory storage in CA3, which is different from its suggested auto-associative function, where individual, single patterns are stored in the network.
+
+\item \textit{Randomly connected network (RCN):} 
+[@@ The connectivity is established like for a DDN. 
+Nodes connected randomly and the weights are sampled from a uniform distribution between zero and one. However, the weights in this model are fixed during the learning phase.]
+%
+The activation $h^i$ of the receiving cell $i$ is determined by
+%
+\begin{align}
+	\label{activationRCN}
+	h^i = \sum_{j=1}^{N^{CA3}_\mathrm{in}} w^{ij}y^{j}_{t-1}.
+\end{align}  
+%
+\item \textit{Locally connected network (LCN):} Each CA3 node is assigned a virtual location in a 2-d square environment and connected to $800$ of its nearest neighbours. The weights of these connections are assigned according to a Gaussian kernel based on the distance between cells. 
+Such a continuous attractor network generates a bump of activity. We use the adaptation parameter ($0 \leq J \leq 1$) to destablize the bump of activity (the attractor of the network), which forces it and move it through the network \citep{azizi2013computational}. The adaptation parameter controls the speed of the bump movement. 
+As a result, the activation $h^i$ of the receiving cell $i$ depends on the activity of the network in the previous time step and the weighted sum of its recurrent inputs $y^j$.
+%
+\begin{align}
+\label{activationLCN}
+h^{i}_{t} = (1 - J y^{i}_{t-1}) \sum_{j = 1}^{N^\mathrm{CA3}_\mathrm{in}} {{w^{ij} y^{j}_{t-1}}}
+\end{align}
+%
+Note that there are no periodic boundary conditions in the LCN. However, we ensure that the neurons at the boundaries receive the same number of inputs as the neurons in the center of the sheet. This may slightly slow down the diffusion of the activity bump near the boundaries of the LCN.
+
+[ @@ Our motivation for testing the later two models is to compare the results of the DDN to the these control example models. In contrast to the DDN, the connection weights in these models are fixed. The RCN generates uncorrelated patterns, whereas LCN generates highly correlated patterns.]      
+
+\end{enumerate}
+
+During the learning phase, input patterns from EC are hetero-associated with network states in CA3. In all models, CA3 dynamics has to be triggered. Once initialized, the next pattern in CA3 is generated according to Eqs.~\ref{activationRCN}, \ref{activationLCN}, or \ref{activationDDN}, and \ref{eq:kWTA}.
+% @@The following is different from what you told me previously.
+The initialization pattern is adjusted according to the CA3 model: for the RCN, it is a random pattern; for the LCN, it is a local bump-shape pattern in a random location; [@@ and the DDN is initialised via the random EC inputs.]
+%
+   
+[@@ The feedforward connections between different areas are set randomly. The initial weights for EC-CA3 and EC-CA1 projections are sampled from a uniform distribution between zero and one, but they set to zero for CA3-CA1 and CA1-EC projections. Therefore, during the learning phase, the CA1 patterns are driven entirely via the random EC inputs.]
+
+\subsection{Input Statistics}
+
+To test the ability of each network to store memory sequences, we generate $P = L \times M$ patterns, where $L$ is the number of sequences, each with $M$ patterns. We denote the set of input patterns as 
+\begin{equation}
+	\{ u_{l,m}: 1\le l \le L, 1\le m \le M \}
+\end{equation}
+Since we recently found that the statistics of the stored patterns have a large impact on the memory performance of a network \citep{neher2015memory}, we consider the more realistic entorhinal grid cell input patterns to EC \citep{hafting2005microstructure}. 
+%
+%\textit{Grid Cell patterns:}
+A number of cells in the medial entorhinal cortex (MEC) of many species, called grid cells, are place-modulated neurons with discrete firing fields arranged in a periodic hexagonal lattice \citep{hafting2005microstructure}.  
+%
+The grid cell properties are extracted from~\citep{stensola2012entorhinal} to match the experimental data.
+Each cell is equipped with a hexagonal grid of place fields with equal size.
+%
+Motivated by the findings of Stensola et al. (2012), we divided the grid cell population into four modules \citep{stensola2012entorhinal}. Cells belonging to the same module have similar grid spacing and orientation, but different spatial phases, which were drawn from normal distributions. 
+%
+The mean grid spacings $s_i$ and orientations of the modules are 38.8, 48.4, 65, 98.4 cm, and 15, 30, 45, 60 degrees. These parameters are drawn from normal distributions with variances 8 cm and 3 degree, respectively.
+%
+See \citep[Fig 1B-1C]{neher2015memory} for the resulting distribution of spacings and orientations of the population.
+%
+Most grid cells ($87\%$) belong to the two modules with small spacings \citep{stensola2012entorhinal}. 
+
+The activation of grid cell $i$ at location $\mathbf{r}=(x,y)$ is determined by
+\begin{equation}
+\label{eq:grid}
+h^i(\mathbf{r}) = A^{ij} \exp \left[ -\ln(5) \left(\frac{d(\mathbf{r})}{\sigma^i}\right)^2 \right],
+\end{equation}
+where $d$ is the Euclidean distance to the nearest field center $j$ and $\sigma^i$ is the radius of the firing field.
+%
+Each field has the same size, which is related to the grid spacing via $ \sigma_i  = 0.32 s_i $ (see Fig
+S4G in \citep{hafting2005microstructure}). 
+%
+$A^{ij}$ is the peak firing rate of the cell in the center of a field and reaches $0.2 A^{ij}$ at the border, which is motivated by the definition of a place field \citep{hafting2005microstructure}. The peak firing rates are drawn from a uniform distribution with from 0.5 to 1.5 (see \citep{neher2015memory} for a visualization of grid patterns).  
+%
+
+To generate inputs, we built a $1\textrm{m} \times 1\textrm{m}$ virtual square environment, which is discretized into a 40 x 40 grid locations. At each grid location, a binary activity pattern is generated by setting the $k$ cells with the highest activation to one and all others zero according to Eqs.~\ref{eq:kWTA}-\ref{eq:binary}. To generate a pattern sequence, we mimic the movement of a virtual rat through the discretized environment. We select $M$ locations to form a trajectory of adjacent locations in the environment. %% @@ how is this done?
+
+[@@] A collection of parameters define the movement statistics of the virtual rat over time. This includes the base speed of the rat, its momentum, and its maximal rotation per time step. 
+%
+The speed of the virtual rat is constant and equal to two unit-step per time-step.
+%
+The momentum value controls the curvature of path segments, with higher momentum values resulting in straighter paths. 
+%
+The virtual rat runs with a momentum of 0.6 and during a single time step cannot turn more than 60 degrees.   
+%
+
+
+\subsection{Learning Phase}
+\label{learning}
+Our goal is to store the sequences $\mathbf u$ in the model such that they can be retrieved as accurately as possible. To store a sequence of patterns in the network during the learning phase, the plastic weights between subregions (green arrows in Fig.~\ref{Fig_1}) are adjusted according to Hebbian learning (Eq.~\ref{heteroEq}). 
+For hetero-association of a pre-synaptic pattern $a$ with post-synaptic pattern $b$, we use the so-called Stent-Stinger rule \citep{stent1973physiological}
+%
+\begin{align}
+	\label{heteroEq}
+	w^{ij} = c^{ij}\sum_{l=1}^L{\sum_{m=1}^M(a^j_{l, m}  - \bar {a}^j)b_{l, m}^i}.
+\end{align}
+$C$ denotes the connection matrix between two regions, i.e., $c^{ij} = 1$ if there is a connection from cell $j$ to $i$ and $c^{ij} = 0$ otherwise. It insures that non-existing connections remain at zero weight. $\bar{a}^j$ is the mean activity level of the pre-synaptic cell over all sequences. 
+%
+To store sequences, we first apply the input patterns $u_{l,m}$ to EC. The activities in CA3 are generated intrinsically in the case of RCN, LCN as described in subsection \ref{ca3:models}. The sequence of CA3 generated patterns $\mathbf y$ are then hetero-associated with the EC inputs $\mathbf u$ (Eq.~\ref{heteroEq}). %
+Neural activity in CA1, $\mathbf x$, is triggered by the constant EC input weights via Eqs.~\ref{activation}-\ref{eq:binary} (Fig.~\ref{Fig_2}A). Furthermore, the patterns in CA3 are hetero-associated with the patterns in CA1, and the CA1 patterns with input patterns $\mathbf u$ in the EC output (Eq.~\ref{heteroEq}). 
+
+
+
+The weights in CA3 are plastic only in the DDN model. The CA3 patterns are first driven jointly by recurrent and external EC inputs (Eq.~\ref{activationDDN}). Then, the corresponding patterns between the CA3 and EC and successive patterns in the CA3 are hetero-associated based on  Eqs.~\ref{heteroEq} and \ref{heteroca3Eq}, respectively.
+%
+During the learning phase for the DDN, we adjust the recurrent weights $V$ in CA3 according to the co-variance rule \citep{sejnowski1977storing} to learn an hetero-association among a set of patterns in a sequence $\{ y_{l, m}: 1\le l \le L, 1\le m \le M\}$.
+\begin{align}
+	\label{heteroca3Eq}
+	v^{ij} =  c^{ij}\sum_{l=1}^L{\sum_{m=1}^{M-1}(y^j_{l, m}  - \bar {y}^j)(y_{l, m+1}^i - \bar{y}^i)}.
+\end{align}
+By subtracting the mean the two learning rules model LTP and LTD. Furthermore the subtraction is essential for computational reasons (see for example \citep[chapter 8.2]{amit1992modeling}).
+%
+After applying the learning rules, the Euclidean norm of the vector $w^i$ of incoming weights to cell $i$, in all layers, is normalized to one to assure that not always the same cells are activated. 
+%
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_2.eps}
+\caption{\textbf{Memory storage and retrieval} \textbf A: To store a sequence $(u_{l,1} , . . . ,u_{l,M})$ that represents an episodic memory, a sequence $(y_{l,1} , . . . ,y_{l,M})$ is activated in CA3 and each element $u_{l,t}$ is associated with a particular CA3 state $y_{l,t}$. Furthermore, when the DDN model is used, the successive states of the CA3 are associated together. The dashed lines on the left hand side of \textbf{A} indicate the associations between patterns.  
+\textbf{B:} Retrieval of a stored memory sequence from CA3 based on a partial input cue $u^{'EC}_{l,t}$. The retrieved elements (patterns) are noisy and are cleaned up by the CA1–EC network.}
+\label{Fig_2}
+\end{figure}
+
+\subsection{Retrieval Phase}
+\label{S:4}
+
+After sequences have been stored in the network, we initiate recall by setting EC to a noisy recall cue $u'_{l, 1}$. This cue is generated by modifying the first pattern of the stored sequence $u_{l, 1}$. A number of active neurons are chosen randomly and inactivated. The same number of silent neurons is chosen randomly and set to be active. 
+%
+Therefore, the number of active neurons is preserved in all cue patterns. 
+%
+The quality of the recall cue is controlled by the number of cells that fire incorrectly. It is measured by the Pearson correlation between the original pattern and the recall cue ($C_{\rm cue}$) (see below). We test the model performance with $6$ different levels of recall cue qualities, namely $ C_{cue} \in \{ 0, 0.2, 0.4, 0.6, 0.8, 1 \}$.
+%
+The recall cue triggers a pattern $\tilde{y}_{l, 1}$ in CA3 directly via the previously learned weights from EC to CA3 and subsequently generates an intrinsic sequence ($\tilde{y}_{l, 2}, \tilde{y}_{l, 3}, \ldots$). This sequence is transferred to CA1 ($\tilde{x}_{l, 1}, \tilde{x}_{l, 2}, \ldots$) and from CA1 back to EC ($\tilde{u}_{l, 1}, \tilde{u}_{l, 2}, \ldots$). Fig.~\ref{Fig_2}B illustrates the retrieval process in our model. Note that the synaptic weights are fixed during the retrieval process. 
+
+\subsection{Analysis}
+\subsubsection{Retrieval Quality}
+To measure how well a retrieved pattern matches the stored pattern, we use the Pearson correlation between the originally stored pattern $a_{l, m}$ of a sequence and the retrieved one $\tilde{a}_{l, m}$. It is defined as
+\begin{align*}
+	C(a_{l, m},\tilde{a}_{l, m})  = \frac{(a_{l, m} -\bar{a})^T(\tilde{a}_{l, m} -\bar{\tilde{a}})}
+{\lVert{a_{l, m} -\bar{a}} \rVert \cdot \lVert{\tilde{a}_{l, m} -\bar{\tilde{a}}}\rVert },
+\end{align*}     
+where $\bar{a}$ and $\bar{\tilde{a}}$ are the means of the stored and retrieved patterns over all sequences, $l = 1,2, ..., L$ and $m = 1,2, ..., M$, respectively. The higher the value of this correlation is, the more similar the recalled pattern is to the original one. We refer to the retrieval quality in CA3, CA1 and the output in EC as $C_{CA3}$, $C_{CA1}$, and $C_{EC}$, respectively (see Figs. \ref{Fig_3} and \ref{Fig_6}).
+
+\subsubsection{Pattern Completion}
+Pattern completion is defined as the retrieval of additional information from a memory network that was not present in the recall cue. To measure pattern completion in our model, we compare the retrieval quality at some stage $C(a_{l, m},\tilde{a}_{l, m})$ to the retrieval quality at the next stage $C(b_{l, m},\tilde{b}_{l, m})$. Here, the stages correspond either to two connected layers in a feedforward network, or to subsequent network states in the recurrent CA3 network. 
+
+%If the first layer is the input pattern in EC, then we use the recall cue quality instead of the retrieval quality(!!!!).
+%
+To perform the comparison, we make a scatter plot of
+$C(b_{l, m},\tilde{b}_{l, m})$ and
+$C(a_{l, m},\tilde{a}_{l, m})$ 
+for all pairs of stored and retrieved patterns.
+If the points line up along the identity line, then the processing does not add any information and thus does not perform pattern completion. Points above the main diagonal show that the output of the network is more similar to the stored pattern than the input was. So the network has performed some amount of pattern completion. The more the measurements are above the diagonal, the better the pattern completion performance (see Fig. \ref{Fig_3}, right column). Measurements below the main diagonal indicate that the output of the network is on average less similar to the stored pattern than the input was, reflecting that information was lost during processing (see Fig. \ref{Fig_3} right column, RCN model).
+
+To quantify the degree of pattern completion in a processing step, we define the pattern completion index (PCI) as the area between the main diagonal and the averaged output retrieval quality. Averaging was performed in 10 bins in input retrieval quality. The area is multiplied by a factor of 2 to obtain numerical values of the PCI between -1 and 1. Positive values imply that the network performs pattern completion, whereas negative values show that the network loses information. Values close to zero imply that the processing step does neither. 
+
+\subsubsection{Sequence Memory Capacity}
+We further study the capacity of the CA3 network as well as the complete circuit, and estimate the number of patterns (sequences) the network is able to store and retrieve. For the specific number of stored sequences, we calculated the pattern completion index (PCI) for different projections (Figs.~\ref{Fig_5} and \ref{Fig_8}). 
+We define the network capacity in our model as the maximum number of sequences that can be stored in the network such that this PCI $\geq 0$.
+
+\subsubsection{Robustness Against Dynamic Noise}
+
+To make our neuron model more biologically plausible, we also add noise to the neural dynamics and investigate its effect on sequence retrieval. In these cases, Eq.~\ref{activation} is rewritten as
+\begin{align}
+\label{dynamic-noise}
+h^i = \sum_{j=1}^{N_\mathrm{in}} w^{ij}u^j + \xi ^i (0,\sigma),
+\end{align}  
+where $\xi^i$ is independent Gaussian noise with zero mean and variance $\sigma$. The noise term is present in the dynamics both during storage and retrieval. We exclude this term for EC input neurons since we control the amount of noise added to the recall cue explicitly.
+%So we obtain only one PCI for the EC-CA3 projection.
+
+
+% Results and Discussion can be combined.
+\section{Results}
+\subsection{Sequence Completion in the CA3 Network}
+
+We first investigate the ability of the network to retrieve the correct stored sequences when initialized with a noisy cue. Figure~\ref{Fig_3} (left column) shows the performance of the three different network models of CA3 (RCN, LCN, and DDN($\alpha$)) for a cue quality of $C_{\rm cue} = 0.4$. In the subplots, each line indicates the retrieval quality for one sequence as a function of the time within the sequence.
+Our results show that the DDN for $\alpha < .9$ reproduces the entire sequence almost perfectly. It is thus able to both perform pattern completion and reach a retrieval quality of about 1, even when retrieval is initiated with highly corrupted cues via EC, $C_{CA3} (y_{l,1}, \tilde{y}_{l,1}) \simeq .3 $. 
+However, the DDN is quite sensitive to noise for $\alpha > .9$ and does not maintain the retrieval quality for extended stretches of all sequences. When $\alpha$ approaches its maximum value $\alpha = 1$, the network shares the temporal correlations in CA3 activity due to the correlated grid inputs from EC and its performance decreases abruptly. In this extreme case, the network model cannot even retrieve one of the stored sequences.
+% 
+
+The RCN is overall highly sensitive to noise as the retrieval quality degrades quickly (Fig.~\ref{Fig_3} (left column), top panel). By contrast, the LCN, which allows controlling the temporal correlation between the stored patterns and is able to generate a continuously moving bump of activity, performs moderate pattern completion and maintains the retrieval quality for the remainder of the sequence (Fig.~\ref{Fig_3} left column, bottom panel).
+In this example, the adaptation parameter is $J = 0.33$. The slower the bump moves, the more robust the network is (data not shown).
+ 
+The results for these networks are summarized for the whole range of noise-levels, $C_{\rm cue} \in  { 0, .2, .4, .6, .8, 1 } $, in the PCI plots for the CA3 dynamics (Fig.~\ref{Fig_3}, right column). 
+% 
+The DDN($\alpha < .9 $), performs sequence completion as the data points are well above the diagonal (PCI > 0). For the DDN($\alpha > .9 $), sequence completion is good when there is less overlap between the stored sequences. Otherwise, the network fails to complete the sequence, since data points lie on the diagonal and below (PCI < 0).  
+%
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_3.eps}
+\caption{\textbf{A:} Example of recall performance in CA3. 
+Each panel shows the retrieval quality in a CA3 model as labelled on the right hand side of the figure, when recall cue with cue quality $C_{cue} = 0.4$ is provided to EC.
+The horizontal axes represents the position of the pattern in the sequence or time-step. Each colored line shows the correlation between the retrieved and the corresponding stored patterns in a sequence.
+The RCN is highly sensitive to noise, whereas the LCN (last panel) seems to keep the same input information while retrieving the stored sequence. 
+The DDN($\alpha < .9$) shows the best performance and retrieves the previously stored sequence from the noisy input cue. The ($\alpha > .9$), depending on the amount of correlation between the stored patterns, either completes the sequence to the correct one or confuses and fails the sequence completion.
+\textbf{B:}~Pattern completion plot. It shows the summary of Retrieval quality in CA3-CA3 projections for the entire range of noise levels.
+To include the whole range of noise-levels, the pattern completion plot for different network models is shown (see Methods and Materials). Data-points above the diagonal stand for good sequence completion, whereas data below the diagonal show that information in the input is lost. Data on the diagonal show that the network maintains the information in the input cue along the sequence. Overall, the DDN($\alpha < .9$) performs best, even with highly corrupted cues. 
+ }
+\label{Fig_3}
+\end{figure}
+
+When modelling CA3 as a RCN, the data points lie below the diagonal and the network as a whole does not perform sequence completion ($PCI = -.1$).
+%
+Since the sequence completion is crucial for the complete loop performance, we exclude this model for the rest of the analysis.
+%
+For the LCN, with low moving bump speed $J = 0.33$, data-points lie mostly on the diagonal meaning that the network model maintains the information from the input cue and sometimes performs sequence completion ($PCI = 0.03$). 
+%
+To conclude, the performance of recurrent networks in generating robust spatio-temporal sequences highly depends on their structure. 
+
+
+Since the CA3 dynamics during the learning can be partly driven by EC grid inputs, the amount of transferred correlation between the stored patterns in CA3 might play an important role during retrieval. 
+Therefore, in order to study the dynamics of sequence retrieval for DDN in more details and the requirement of the inputs to CA3 nodes for efficient storage of pattern sequences, we calculated the average temporal correlation $ <C^{temp}_{CA3}>$ between successive stored patterns against the parameter $\alpha$ (Fig.~\ref{Fig_4}). 
+%
+We mutually compare the average PCI value (blue data-points) with the $ <C^{temp}_{CA3}>$.
+%
+We indeed find that the amount of pattern completion in CA3 (blue) is strongly related to the correlation between the stored patterns (red). 
+For DDN($\alpha < .9$), the average temporal correlation between the stored patterns of the sequences is close to zero, whereas it suddenly increases for DDN($\alpha > .9$). 
+%
+This CA3 dynamic change at $\alpha \simeq .9$ is seen consistently across multiple simulations, when the PCI is averaged across 20 simulations with different set of stored sequences.   
+%
+These results shows that the CA3 dynamics is highly sensitive to this kind of correlation and it deteriorates the network performance.
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_4.eps}
+\caption{\textbf{How does average temporal correlation affects the sequence completion in CA3?} 
+The blue data points show the average PCI value, which is calculated based on the results in Fig. \ref{Fig_3} (right column), for different $\alpha$ parameters. The red data points show the corresponding average temporal correlation $C^{temp}_{CA3} = {<{<C_{CA3}(y_{l,t}, y_{l,t+1})>}_l>}_t$ between the stored pattern sequences. To do so, for each sequence, we first calculate the correlation between successive patterns, $C_{CA3}(y_{l,t}, y_{l,t+1}); t = 1, ..., M-1$. Then average in order over the number of sequences (L) and the sequence length (M). We repeat the simulation 20 times, each of which set of sequence trajectories in the virtual environment. Errorbars indicate the standard deviation. For the $<C^{temp}_{CA3} >$, it increases suddenly as the $\alpha$ parameter pass the transition value .9.
+Note, in particular, the slightly higher standard deviation for the average PCI data points close to the transition point, as well.  
+}
+\label{Fig_4}
+\end{figure}
+
+Since the LCN structure is restricted and cannot generate a sufficient number of uncorrelated patterns, there is a clear and relatively large temporal overlap between the stored patterns. For the LCN with $J = .33$, the average temporal correlation is about $<C^{temp}_{CA3}> \simeq 0.35$. 
+Further, we calculated the average temporal correlation for the stored patterns in EC and CA1, which are $<C^{temp}_{EC}> \simeq 0.3$ and $<C^{temp}_{CA1}> \simeq 0.08$, respectively. 	    
+
+In summary, we find that the robustness of sequence generation depends sensitively on the network architecture. The RCN is very sensitive to noise, whereas the LCN generates moderately robust neural sequences. The DDN performs perfect sequence completion as long as the correlation between the stored patterns of the sequences is zero, otherwise, the retrieved sequence deviates from its original stored one. The DDN($\alpha < .9$) exhibits the most robust dynamics since the stored pattern sequences are orthogonal to each other.
+
+Whether the overlap is harmful for sequence completion and pattern hetero-association in feedforward networks will be analysed in the next section. 
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_5.eps}
+\caption{\textbf{Capacity analysis.} 
+\textbf{Left}:~Recall performance as quantified by the pattern completion index (PCI) in CA3-CA3 projections, for the four different DDN networks as a function of the number of stored sequences. 
+We define the CA3 capacity in our model as the maximum number of sequences than can be stored such that PCI $> 0$. \textbf{Right}:~Robustness against dynamic noise.
+Same plotting convention as in \textbf{A}.
+Performance of four different DDN networks at different levels of dynamic noise is shown.
+}.   
+\label{Fig_5}
+\end{figure}
+
+\subsubsection{Sequence Memory Capacity and the Effect of Dynamic Noise on CA3 Network}
+
+We study the CA3 capacity by calculating the average PCI for DDN network, while increasing the number of stored sequences (Fig.~\ref{Fig_5}, left). 
+%
+Each color depicts the results for the corresponding CA3 DDN($\alpha$) model and values show the average amount of pattern completion in CA3 (<PCI>).
+%
+Our results show no evidence for an abrupt change in retrieval quality, that would be evidence for catastrophic interference as more and more patterns are stored. Instead, retrieval quality degrades gracefully for DDN($\alpha < .9$).
+The DDN($\alpha > .9$) does not reach our criterion (PCI > 0) at all and thus have zero capacity. The DDN($\alpha < .9$) has a capacity of around 70 sequences (about 1000 patterns).
+%
+
+We have found in general that the maximum number of pattern sequences that can be retrieved ($\simeq 1000$), is compatible with the previous studies. \citet{treves1994computational} have shown that the recurrent network capacity is proportional to the number of modifiable synapses per cell, by a factor that increases roughly with the inverse of the pattern sparsity. 
+%
+However, when we performed simulations with all-to-all or $10 \%$ connectivity (data not shown), we found no qualitative differences in the results, indicating that our results are not sensitive to the number of synapses within the range tested here.
+%
+The most important parameter that can significantly affect the network capacity is the sparsity of the stored patterns. How the network capacity scales with the sparsity of the patterns in our simulations is compatible with that of findings from \citet{treves1994computational}. By storing the less spars patterns, the network capacity decreases approximately with the factor of $a \ln (1/a)$ (data not shown).   
+%
+Some other theoretical work studied the activity sequences and memory capacity in recurrent networks in much more details \citep{leibold2006memory, sompolinsky1986temporal}.
+%
+For instance, \citep{leibold2006memory} discussed how a combination of several biological constraints, e.g., the network size, the mean connectivity, and the number of active neurons per pattern, affects the capacity of sequential memory in a constrained recurrent network. 
+%
+[@@ the following sentence might be a good evidence for why having feedforward structure is important for sequence learning in recurrent networks] \citet{sompolinsky1986temporal} indicated the role of the asymmetry connections in temporal associations in recurrent neural networks. 
+
+
+In Fig.~\ref{Fig_5} right, we show the results of the effect of the noise dynamic on CA3 network performance. 
+Comparing the performance of the networks confirms that the networks with $\alpha < .9$ in CA3 are robust against noise in the dynamics to some extent (up to $\sigma \simeq 0.4$). Even when $ 40 \% $ noise of its average activity pattern is added to the CA3 dynamic, it completes the sequence successfully. 
+%
+In this simulation, we store 256 patterns (16 sequences) in the network. The network with $\alpha = 1$ is shown as the reference for comparing the performance of the other networks.    
+ 
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_6.eps}
+\caption{\textbf{Comparison of average retrieval performance at different processing stages.}
+Each panel shows the result for a different CA3 model. X-axes illustrates the pattern completion in the EC-CA3, CA3-CA3 (through time), CA3-CA1 and CA1-EC projections. Each data point, except for the retrieval cue, shows the average performance in the indicated step. Different colors indicate the performance in different time steps.}
+\label{Fig_6}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_7.eps}
+\caption{\textbf{Summary of pattern and sequence completion.} In this figure the pattern completion is shown by comparing the first and last retrieval correlations of the sequences in EC. Each panel correspond to a  DDN model with different $\alpha$. The last panel (down left) illustrates the average PCI value against the parameter $\alpha$.}
+\label{Fig_7}
+\end{figure}
+
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_8.eps}
+\caption{\textbf{Capacity analysis.} 
+\textbf{Left}:~Recall performance as quantified by the average PCI, by comparing the first and last retrieval correlations of the sequences in EC, for the five different DDN networks as a function of the number of stored sequences. 
+\textbf{Right}:~Effect of noise in neural dynamics on overall network performance.
+Same plotting convention as in \textbf{left}.
+}.   
+\label{Fig_8}
+\end{figure}
+
+
+\subsection{Storing and Retrieving Pattern Sequences in the Hippocampal Model}
+
+To test the important features of the CRISP hypothesis that CA3 performs sequence completion and the feedforward projections perform pattern completion, we compared a simulation of the complete network EC-CA3-CA1-EC with different CA3 network models.
+%
+Grid patterns in EC are spatially correlated, which affects the feedforward hetero-association and thus the overall model performance. 
+%
+We perform simulations where the retrieval cues are presented in the EC and then average over the retrieval qualities in each time step, $<C(a_{l,t}, \tilde{a}_{l,t})>_l$, in different processing stages, namely EC-CA3, CA3-CA3, CA3-CA1, and CA1-EC.  
+%
+Fig.~\ref{Fig_6} demonstrates the results for the first 8 time steps in different processing steps. In all networks the cue quality is $C_{cue} = 0.4$.
+%
+Each panel illustrates the results for a different DDN($\alpha$) model. As a control example, in terms of the correlation between the stored patterns, we show the results for the LCN model as well (last panel). 
+%
+
+The overall memory performance on correlated grid input is best using the DDN($\alpha < .9$). 
+%
+However, it is intriguing that not all processing steps perform better. 
+%
+In particular, the first step of hetero-association in EC-CA3 using the DDN($\alpha < .9$) performs worse than in the DDN($\alpha > .9$). The most obvious case is when comparing the DDN(0) with the DDN(1).
+%
+The DDN(0) loses the information in the input cue, whereas DDN(1) performs a small amount of pattern completion.
+%
+As larger the parameter $\alpha$, the better the performance of the EC-CA3 at pattern completion.
+%
+Overall, the network performs only a small amount of pattern completion through the EC-CA3 projection, when the $\alpha$ is close to 1,  due to the correlation between the patterns in EC.
+%
+
+The next two feedforward steps show the pattern completion through the CA3-CA1 and CA1-EC projections. With the DDN($\alpha < 0.9$), both steps perform pattern completion, however, it only occurs for the initial patterns of the sequences (t $=$ 1, 2 and 3). 
+%
+Except for the initial patterns the rest of the sequence is already completed in CA3. This is apparent in Fig.~\ref{Fig_3} (right), as well.
+%
+The main reason that allows pattern completion in these projections is that CA3 dynamics generates almost uncorrelated patterns. 
+%
+For DDN($\alpha > .9$), except for the first pattern,  the CA3-CA1 and CA1-EC projections maintain only the information in the input cues. 
+%
+Overall, the large amount of pattern completion happens for the first pattern of each sequence. We discussed the potential reasons for that in the end of the results.           
+%
+
+With LCN, the CA3-CA1 projection, except for the first pattern, almost loses all information and the CA1-EC projection cannot recover the information.
+Since the LCN maintains the information of the input cue along the sequence in CA3 (see Fig.~\ref{Fig_3}, right), one would expect pattern completion through the CA3-CA1 and CA1-EC projections. Surprisingly, pattern completion fails in this model, too. This is because patterns within and between the sequences are highly correlated. The correlations, which depend on the moving bump speed parameter $J$, introduce an overlap between the weights that the CA3-CA1 projection uses to hetero-associate the patterns, and this in turn impairs the network in retrieving the correct patterns in CA1.
+%
+In principle, the CA3-CA1 and CA1-EC projections are identical in all networks, nevertheless, their performances depend on the correlation between the patterns that are generated in CA3 during retrieval. With the LCN model, CA3 generates highly correlated patterns, therefore the CA3-CA1 and CA1-EC projections can not decode the stored information. Whereas the DDN($\alpha < .9$) models generate uncorrelated patterns in CA3, which allow for better pattern completion. When DDN($\alpha > .9$) models are used, there is a correlation between the stored patterns and that the CA3-CA1 and CA1-EC projections performs less pattern completion (see Fig.~\ref{Fig_6}).
+%
+To conclude, the CA3 dynamics is essential for the recall of stored sequences and must generate robust and at the same time uncorrelated pattern sequences.
+
+%
+Fig.~\ref{Fig_7} summarises the overall performance of the network for the whole range of noise-levels. We compared the recall cue quality ($C_{cue}$) to the retrieval quality of the last pattern of the sequence in EC ($C_{EC} (u_{l,M}, \tilde{u}_{l,M})$).
+%
+The last panel (bottom left) shows the average PCI against $\alpha$.
+%
+The models with the DDN($\alpha > .9$) in CA3 fails to retrieve the stored sequences at any recall cue quality. Whereas with the DDN($\alpha < .9$) in CA3, the model performs perfect sequence completion for the recall cue qualities greater than about $0.2$.
+%
+The reason is that the correlation between the patterns in EC is transferred to CA3 and that the CA3 dynamics then fails to retrieve most of the sequences. This implies that CA3 weights should be trained partly independently of EC. Furthermore, the temporal correlation between stored patterns is detrimental for pattern completion in feedforward networks.
+
+\subsubsection{Sequence Memory Capacity and the Effect of Dynamic Noise on the Complete Loop}
+
+We further study the capacity of the network at the output stage based on the results in Fig.~\ref{Fig_7}. 
+The best measure of overall memory performance is arguably the comparison of last retrieved pattern to the recall cue, which is an indicator for sequence completion.
+%
+For the specific number of stored sequences, we calculated the average PCI and define the network capacity in our model as the maximum number of sequences that can be stored in the network such that this $<PCI> > 0$.
+%
+In Fig.~\ref{Fig_8} (rleft), each color depicts the capacity of the corresponding CA3 network against the number of stored sequences.
+%
+As indicated the retrieval quality degrades gracefully in all DDN($\alpha < .9$)  models.
+% 
+The DDN models, with $\alpha = .9$ have a capacity of around 25 sequences (about 400 patterns).
+%
+The model with $\alpha < .9$ in CA3 shows the highest capacity of around 50 sequences (about 800 patterns).
+%
+The most important reason is that CA3 dynamics has high capacity (Fig.~\ref{Fig_5}, left) and at the same time generates orthogonal patterns, which helps in hetero-association.  
+%
+As can be predicted from the previous figure, the DDN(1) has the capacity zero. 
+
+%noise dynamics
+Furthermore, we test the impact of the dynamic noise on the network capacity. We use the same criteria as in Fig.~\ref{Fig_8} (right) for determining the capacity of the network. In this simulation, we store 256 patterns (16 sequences) in the network. 
+%
+In Fig.~\ref{Fig_8} (right), each color depicts the capacity of the corresponding CA3 network against dynamic noise.
+%  
+Comparing the net performance of the networks confirms that the DDN($\alpha < .9$) are robust against noise in the dynamics (up to $\sigma \simeq 0.3$). 
+%
+However, the sensitivity to noise increases abruptly for all networks in the presence of more noise. 
+%
+The data indicate that in the presence of dynamic noise the DDN(.85) performs best. 
+%
+\begin{figure}[!htb]
+\centering\includegraphics[width=.7\linewidth]{Fig_9.eps}
+\caption{\textbf{Dimensionality of the pattern manifold in different layers.} PCA of the patterns stored in EC, CA1, and CA3 for different network models. The plots show the number of components that are required to account for a total of $85 \%$ of the variance. The top row shows the fraction of the variance explained by individual components, the bottom row shows the cumulative fraction. The manifold of patterns in EC with grid input has very low dimensionality. Since the grid patterns are generated from moving in a 2-d space, the true dimensionality is 2, but the manifold is highly nonlinear and PCA cannot extract this information. A similar effect can be seen in CA1 and CA3 with DDN(1), since these areas are directly driven by EC. CA3 patterns in a LCN, are low dimensional since network activity is constrained by the attractor dynamics to a 2-d manifold. The DDN(0) patterns has the highest dimensionality, since the patterns are purely generated by the random recurrent connections in CA3 and are nearly orthogonal to each other. For the DDN($\alpha < .9$), the dimensionality is still close to maximum. As the $\alpha$ approaches its maximum value, the dimensionality of the patterns suddenly drops toward that of in DDN(1). These results are compatible with the results of the average temporal correlations in Fig.~\ref{Fig_4} }
+\label{Fig_9}
+\end{figure}
+
+
+\begin{figure}[!htb]
+\centering\includegraphics[width=1.\linewidth]{Fig_10.eps}
+\caption{\textbf{Why the grid correlation is harmfull for the feedforward hetero-associations?} Top panel illustrates the number of components that explane the $85 \%$ of the variance, against the parameter $\alpha$. Note how this number suddenly decreases when $\alpha > .9$.
+%
+Bottom panel shows the average PCI for the EC-CA3 projections for the entire range of noise levels against $\alpha$.
+} 
+\label{Fig_10}
+\end{figure}
+
+
+\subsection{Dimensionality and Pairwise Correlation Analysis}
+
+Comparing the network performances with grid input statistics to EC and
+different models in CA3 indicated that the grid correlation between the stored patterns is apparently harmful for the feedforward hetero-association and the sequential association of the activity patterns in CA3 (Figs.~\ref{Fig_3}, \ref{Fig_4} and \ref{Fig_6}. 
+%
+Even though the overall memory performance on correlated grid input
+was best using the DDN($\alpha < .9$) model in CA3, it is intriguing that not all processing steps perform better. In particular, the first step of hetero-association in EC-CA3, when DDN($\alpha < .9$), performs worse than that of DDN($\alpha > .9$).
+%
+Furthermore, independent of the parameter $\alpha$, network performs a good pattern completion for the first pattern of the sequence. 
+%
+
+To better understand why these occurs, we investigated the manifolds on which the stored patterns in EC, CA3, and CA1 lie. 
+%
+To do so, we apply principal component analysis (PCA) to the stored patterns in each layer. 
+%
+PCA is a method of dimensionality reduction without (much) sacrificing the accuracy. Dimensions are number of independent variables (or patterns!). PCA aims to summarize data with many independent variables to a smaller set of derived variables. In such a way, that first component has maximum variance, followed by second, followed by third and so on. Furthermore, the covariance of any of the component with any other component is zero.
+In a way PCA, redistributes total variance in such a way, that first K components explains as much as possible the total variance. Total variance in case of $P$ independent variables is sum of the variance of the individual variables \citep[chapter 4]{Hastie2009}.
+%
+The dimensionality of the pattern space in each layer equals the number of cells $N$. Within this space, the manifold spanned by the $P$ stored patterns has at most a dimensionality of $P$ (=256). However, due to the correlation between the stored patterns, the effective dimensionality of the manifold can be much smaller.
+%
+
+Fig.~\ref{Fig_9} illustrates the PCA analysis on the stored patterns in different areas. Analysis on the grid patterns in the EC indicates that only 40 dimensions explain about $85 \%$ of the variance. Therefore EC patterns lie on a small (and crumpled) subarea. 
+%
+For DDN($\alpha$) as the $\alpha$ increases the number of components, that explain about $85 \%$ of the variance, decreases very gradually and when $\alpha > .9$, it drops suddenly.  
+
+Now we address the differences in the level of pattern completion in the network. 
+%
+Why does pattern completion in the EC-CA3 projection work better when the $\alpha$ is larger? (see Fig.~\ref{Fig_6}). 
+%
+Fig.~\ref{Fig_10} (top) illustrates the number of components for DDN against the parameter $\alpha$. For DDN($\alpha < .9$), the number of dimensions that the patterns are expanded on decreases gradually and are almost orthogonal.
+Increasing the $\alpha$ beyond .9, a very sharp transition happen for the number of components and therefore patterns lie in a very smaller subareas. 
+%
+Fig.~\ref{Fig_10} (bottom) shows the average PCI for the EC-CA3 projections. As the $\alpha$ increases, the performance of these projections gets better.    
+%
+The stored patterns in the DDN with larger $\alpha $ span a lower dimensional space. 
+%
+Therefore, the retrieved patterns lie in a lower dimensional space, which keeps the retrieval error small.
+%
+The same explanation is valid when CA3 is modeled as LCN. In this case, the EC-CA3 projection occasionally performs better or worst than the other models (see \ref{Fig_3} left column, the first pattern retrieval quality). The PCA analysis on the patterns stored in CA3 shows that stored patterns in the LCN  are expanded in a low dimensional space ($csim$ 60). Therefore, the retrieved patterns forced to be closer to the stored ones. Consequently, the reconstruction error is lower. At the same time, the higher overlap between the patterns in CA3 hurts pattern completion in the EC-CA3 projection. 
+
+In brief, the argument is based on the notion that the dimensionality in EC is relatively low, that is, only 40 dimensions explain about $85 \%$ of the variance, and in CA3 it depends on the parameter $\alpha$ in DDN model. In order not to lose too much information in EC-CA3 projections, but rather perform pattern completion, it turns out that the dimensionality in the CA3 network should be as much as possible close to that dimensionality in EC. For example, for DDN when $\alpha$ is close to one, the EC-CA3 projections perform better and can then initiate the CA3 dynamics with the better retrieval cue. In contrast, CA3 needs uncorrelated patterns during training to retrieve the full sequences.  Therefore, we need to trade off between these two requirements. This is expressed by the results that give the specific range for $\alpha$ that can optimise the network capacity. 
+%
+The compression to a low dimensional space has negative consequences for decoding CA3 patterns downstream in the CA3-CA1 projection. For instance, the LCN completes the sequences moderately, but the information cannot be decoded from CA3 to CA1 due to the highly correlated patterns in CA3. In the other CA3 models, the CA3-CA1 projection can perform pattern completion if the sequences are completed moderately in CA3 (see Fig.~\ref{Fig_6}). 
+%     
+   
+It has been noted that a hetero-associative memory network needs uncorrelated patterns in the pre and post-layers, so that, it performs proper pattern completion when it retrieves a stored pattern \citep{willshaw1969non, neher2015memory}. 
+%
+However, when the correlation is indued between the patterns in one or both of the layers, the performance of the feedforward hettero-association depends on dimensionality of the patterns as well as the statistic of the noise which is introduced to the retrieval cue.   
+%        
+The most important issue is that why in all CA3 models feedforward pattern completion is good for the first pattern.      
+%     
+Our intuition is that the nature of the noise which added to the patterns in the feedforward connections is very different from that of which is added by the CA3 dynamics. The noisy patterns which are generated by the recurrent dynamics lie to the manifold that the stored patterns lie in (dependent noise). Whereas, the noisy patterns that are generated via EC-CA3 projections lie on a manifold which is orthogonal to that of which the stored patterns lie in (independent noise). Apparently CA1 can recover and decode the incomplete patterns in CA3 that include the independent noise, but not those ones that include dependent noise. For instance, in the case of LCN, the first pattern can be decoded via CA1 but not the rest of the patterns in a sequence which lie in a 2-D manifold .      
+%        
+
+
+\section{Discussion}
+
+We have investigated the storage and retrieval of memory sequences in the hippocampal circuit based on the recently proposed CRISP theory. CRISP is based on intrinsic sequences in CA3, and pattern completion in feedforward projections. We found that the performance of the network model that implements CRISP critically depends on the CA3 dynamics in generating robust sequences. Furthermore, the correlations between different stored patterns deteriorate pattern completion both in feedforward and recurrent networks. For instance, when modeling CA3 as a LCN, stored sequence are retrieved robustly within CA3, but the correlations between patterns within a sequence impair pattern completion when decoding CA3 patterns. In contrast to LCN, a RCN facilitates decoding, but sequence retrieval fails if any noise is present.
+%
+It turns out that the DDN model for the CA3 dynamics, if generates mutually uncorrelated memory sequences of activity patterns, has the best memory performance. 
+%
+Including only about $10\%$ of the intrinsic CA3 dynamics is sufficient to remove the grid correlations between the EC input patterns and allow an efficient sequence memory storage.   
+%
+
+Intrinsically generated sequences have been observed in a number of different studies. During the delay period in an ongoing task, hippocampal neurons fire in a reproducible temporal sequence \citep{pastalkova2008internally, macdonald2011hippocampal}.  Sequential activities were observed in an offline state before rodents explore a novel environment, which were correlated with the ordering of place fields in the novel environment (preplay) \citep{dragoi2011preplay}. This preplay phenomenon suggests that the offline sequences could not have been established by external sensory inputs and are intrinsic to CA3 \citep{azizi2013computational}. These observations are difficult to reconcile with the standard framework. The pool of intrinsic sequences in CA3 might be established during development and/or during extended rest periods.  
+
+
+\subsection{Comparison of CRISP to the Standard Framework}
+Standard framework proposed that CA3 stores memories in an autoassociative manner \citep{marr1991simple, mcnaughton1987hippocampal, treves1992computational}.
+%
+However, many researchers have proposed that recurrent synapses among the CA3 pyramidal cells endow the CA3 network with heteroassociative properties and that CA3 links different memories that occurred at different times \citep{lisman1999relating,  jensen1996hippocampal, wallenstein1997gabaergic, lew1996sequence}.
+%
+Moreover, the standard framework mostly focuses on an isolated CA3 network and neglects the inevitable encoding and decoding in feedforward projections. It has been shown computationally that hetero-associative projections are capable of reconstructing the memory of grid cell patterns even when the recurrent connections (auto-associative function) in CA3 are removed \citep{neher2015memory}. This study illustrates how essential it is to consider the whole hippocampal loop while investigating individual functional roles of the subregions. 
+
+In summary, even though the standard framework has been influential in explaining the neural mechanisms of episodic memory storage, the evidence against it is mounting, warranting an alternative to an attractor network in CA3. CRISP suggests that the feedforward connectivity between hippocampal sublayers act as a feedforward pattern association network that is more important than the recurrent CA3-CA3 association system. 
+
+\subsection{Sequence retrieval}
+%One of the reviewers asks: why in the retrieval phase only the first pattern affects the activity in CA3?
+One may argue why only the first pattern in a sequence is evoking the response in CA3, and none of the following EC patterns, which were used to train the network, affect the network dynamics in CA3 (see Figs.~\ref{Fig_3} and \ref{Fig_6}.  
+Note that we aim to test the network performance in sequence retrieval and because of that, we provide the simple cue which is the corrupted version of the first pattern in the stored sequence. Then, the network retrieves the rest of the sequence, heavily based on sequence retrieval in CA3. 
+However, providing the whole patterns of a stored sequence in EC intervenes the CA3 dynamics during the sequence completion and might prevent the efficient sequence retrieval in CA3. This highly depends on the nature of the patterns that are used in EC and the performance of the EC-CA3 projections in pattern completion. Since we fed the EC with grid patterns, it deteriorates the pattern completion from EC to CA3. Therefore, if a complete sequence in EC is used as an input cue, it definitely reduces the CA3 performance when retrieving the sequence.
+%
+If we provide the EC with any of the corrupted patterns in the sequence, the same results are given when retrieving the same length of the sequence. 
+
+\subsection{The Function of DG}
+ 
+In our simulation, we did not include explicitly the function of DG. However, the influence of DG can be integrated into our model. A number of studies have indicated that DG orthogonalizes the patterns before storage, a process known as pattern separation \citep{mcnaughton1987hippocampal, o1994hippocampal, marr1991simple, treves2008mammalian}. This process is facilitated by adult neurogenesis in DG, a process in which new neurons (granule cells) continue to be generated and incorporated into the network. New born cells have little overlap with older DG cells with respect to their projections to CA3 \citep{becker2005computational, wiskott2006functional, aimone2009computational}.
+%
+Our results illustrate that the memory performance is best if the CA3 network generates sequences of uncorrelated patterns (DDN($\alpha < .9$)). Orthogonal CA3 patterns are good for memory performance and precisely what one would expect if DG performs perfect pattern separation.
+%
+With a DDN($\alpha > .9$) in CA3, the linear transformation of the patterns from EC to CA3 keeps the correlations between grid code patterns in CA3, which subsequently deteriorates the network performance.
+% 
+
+The advantages of the CA3 dynamics is that it allows both generating mutually uncorrelated pattern sequences and a hetero-association between them. Therefore the network achieves a good overall memory performance because sequences in CA3 are encoded robustly and do not impair decoding in the feedforward connections to CA1 and EC. 
+%
+Including the DG layer might function as a noise generator to the CA3 layer and that removes the induced correlation between the EC input patterns. Here, we suggest that DG looses its function throughout the animals life time. We simulate this by increasing the $\alpha$ in DDN model. 
+%
+%here are the evidence why DG looses its function through the life time
+The rate of neurogenesis has been found to decline dramatically with age \citep{ kuhn1996neurogenesis, klempin2007adult}. Comparing mice in middle age to early adulthood, older animals have about $80\%$ fewer neural progenitor cell proliferation, neuronal differentiation, and newborn neuron survival \citep{kuipers2015changes}. In the mouse DG, only $8.5\%$ of the neurons born postnatally are added after middle age \citep{lazic2012modeling}. 
+%
+We propose that a pool of uncorrelated sequences is established in the CA3 network when newborn neurons integrate into the DG network and provide orthogonal activity to CA3. In our model, this corresponds to the initial random connectivity of the DDN. Memory storage during early adulthood would make extensive use of these random sequences. Since the rate of newborn granule cells in DG is substantially lower in middle ages than during early adulthood, the generation of random CA3 patterns would become less prevalent. So, the DDN with a larger $\alpha$ might be a more plausible model of CA3 in middle age.
+
+\subsection{Pattern Completion in CA1}
+Another important issue is the contribution of CA1 in episodic memory storage. The standard framework does not offer a clear function for CA1, but some studies hypothesized that CA1 plays a role in novelty or mismatch detection \citep{hasselmo1996encoding, lisman2001storage}. CA1 might detect novelty by increasing its activity when rats are exposed to novel environments \citep{karlsson2008network, csicsvari2007place}.
+%
+Lesions to CA1 produce deficits in the retrieval of contextual fear conditioning \citep{lee2004differential}, and retrieval of spatial information when learning a Hebb-Williams maze \citep{jerman2006disconnection, vago2007role, hunsaker2008double}. 
+%
+An alternative function of CA1 supported by our results is pattern completion of CA3 patterns to increases the precision and robustness of retrieval (see Fig.~\ref{Fig_6}). Hence, CA1 decodes the highly transformed patterns in CA3 back to their original versions in EC \citep{neher2015memory}.
+
+[@@ One of the reviewers suggest that we might assign the function of timing to CA1 but not to CA3. Here I can discuss the paper that shows the timing of the sequences in CA1 vanishes when the CA3 input to CA1 are restricted.] 
+
+\subsection{Dynamics and the temporal dimension}  
+
+One of the concerns is how the hippocampus associates the events that are separated by more than a second, while with the continuous dynamics, that are present in the brain, any attractor (in CA3) finds the basin of attraction within 10-20 ms. This time scale of activity propagation in continuous attractors depends crucially on the time constants governing synaptic conductances \citep{battaglia1998rapid, panzeri2001speed, treves1993mean}. 
+%
+Various oscillatory rhythms (e.g. theta, gamma, ripples) are assumed to be essential for episodic memory and sequence learning in hippocampus \citep{traub2002axonal}.
+%
+We assume that there is an external mechanism that acting on the hippocampus and which is responsible for synchronising the activity through the CA3 dynamics and the entire network. There could be a clock like a gamma oscillation, which has been observed in the hippocampus \citep{jensen2007human}. Therefore, neuronal oscillations allow for temporal segmentation of neuronal spikes. 
+%
+Here, we assume that the storage and retrieval of the input patterns can happen in gamma time scale.
+%
+These gamma oscillations synchronizing spikes and creates pause between items in a message to prevent errors in decoding particularly in the CA3. 
+%
+The indication is thus that retrieval would be very rapid from the CA3 network, indeed, fast enough for it to be biologically plausible.
+%
+The dual oscillations are hypothesized to form a code for representing multiple items in an ordered way \citep{jensen1996hippocampal, lisman1995storage}. 
+%
+In order to get something in order of the behavioural time scale which is stored in gamma cycle, we postulate that the inputs to the hippocampus are temporally compressed due to the phase precession mechanism out of the hippocampus \citep{o1993phase}, e.g., phase precession has been observed in the EC [@@ citation!]. 
+%
+Temporally compressing behavioral sequences that happen on the time scale of seconds down to the time scale of milliseconds (within a gamma cycle). This compression of the behavioural time scale of seconds to the time scale of a theta or gamma cycle enables synaptic plasticity and a neural mechanism for representing the temporal order of events required for episodic memory. So a rat's hippocampus compresses ongoing experience into repeating theta sequences \citep{senior2008gamma, lisman2013theta, siegel2009phase}.
+%
+These assumptions makes it possible to formulate a model of sequence memory with a time clock running to keep the time steps apart, which is what effectively our simulations implement. 
+%
+This model is rather abstract and is not a biophysical model of the hippocampus. In principle, we aimed to investigate how correlation introduces difficulties to the storage of pattern sequences in the hippocampus.
+However, it is out of the scope of this study to suggest which mechanisms is responsible for the storage and retrieval of the input memories.   
+
+
+\subsection{Relationship to Spatial Memory}
+In our model, we compare the storage of random patterns to the storage of grid patterns. The latter is an example of spatial memory and likely an ethologically relevant function of the hippocampus. It has been shown that the  hippocampus is necessary for spatial learning in rodents \citep{morris1982place} and humans \citep{burgess2002human}.  However, several other types of cells have been discovered in the hippocampal formation as well, including head direction cells \citep{taube1990head}, border cells \citep{solstad2008representation}, odor-sensitive cells \citep{deshmukh2003representation}, irregular spatial cells or nonspatial cells \citep{zhang2013optogenetic}, and time cells \citep{macdonald2011hippocampal, salz2016time}. This diversity of cell types is consistent with the function of the human hippocampus in episodic memory \citep{burgess2002human}. While the focus of this article was on episodic memory, our network stored spatial information from grid cells. The full range of inputs to the hippocampus and the mixture of different inputs are poorly explored. We expect that our results are applicable beyond grid patterns because it is the correlation between CA3 patterns that are detrimental to memory performance and these correlations are present in any of the aforementioned cell types and quite likely in episodic memory patterns in general.
+
+Our model could help to study whether the spatial representation in CA1 and CA3 can be reconciled with episodic memory in the same neural network model. We found previously that a fairly generic solution to the transformation from grid cells to place cells could be learned in a feedforward model \citep{cheng2011structure}. We also found evidence for spatial coding in CA1 and CA3 in a model related to the current one \citep{neher2015memory}. Since our model includes the hippocampal circuit, it enables future investigation of spatial representations in the hippocampal subregions. 
+
+\subsection{Predictions}
+Our results confirm that the contribution of the intrinsic dynamics in CA3 facilitates the episode memory storage. 
+%
+The EC input solely would not produce suitable activity patterns in CA3. Such an input induces correlation between stored patterns.
+%
+We have shown that purely driving the CA3 dynamics by EC inputs should result in catastrophic interference in CA3.
+%
+In contrast, allowing only about 10$\%$ of the CA3 activity to be driven by the intrinsic dynamics, leads to a proper retrieval of the stored sequences in CA3. 
+%
+The performance in retrieval would be due to the orthogonality that is induced to the stored patterns by intrinsic dynamics. 
+%
+Our results suggest that this correlation should be very lower than that of in EC or CA1.
+%
+When the average temporal correlation is very close to zero, the initialized network state is attracted to the correct stored sequences. The overlap among the stored sequences is insignificant so that the network can perform perfect sequence completion.
+%
+
+\subsection{Conclusion} 
+Compared to previous models, CRISP uses a radically different mechanism for storing episodic memories in the hippocampus. Neural sequences are generated in CA3, and inputs are mapped onto these sequences through synaptic plasticity in the feedforward projections of the hippocampus. Here, we computationally investigated, based on the CRISP theory, the role of the complete hippocampal loop in storing and retrieving episodic memories. Our work illustrates how essential it is to consider the whole hippocampal loop while investigating individual functional roles of the subregions. Since a model generating uncorrelated sequences in CA3, via the recurrent inputs, performs best overall, we conclude that CRISP is a viable theory for the role of the hippocampus in episodic memory.
+
+\bibliography{test}
+
+
+\end{document}
